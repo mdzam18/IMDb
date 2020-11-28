@@ -4,39 +4,100 @@
     <meta charset="UTF-8">
     <title>MainPage</title>
     <style>
-        .main{
+        .main {
             display: flex;
             flex-direction: column;
             width: 100%;
             background-color: black;
         }
 
-        .header{
+        .header {
             display: flex;
             flex-direction: row;
             justify-content: space-between;
         }
 
-        .movies{
+        .content {
+            margin: 0px auto;
+        }
+
+        .movies {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+        }
+
+        .upNext > h1 {
+            color: goldenrod;
+        }
+
+        .upNext {
+            margin-left: 200px;
+        }
+
+        .trailers {
+            display: flex;
+            flex-direction: column;
+        }
+
+
+        .featuredToday > h1 {
+            color: goldenrod;
+        }
+
+        .featuredTodayImages {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+        }
+
+        .whatToWatch {
             display: flex;
             flex-direction: row;
         }
 
+        .whatToWatch > h1 {
+            color: goldenrod;
+            margin-top: 0px;
+        }
+
+        .whatToWatch > input {
+            background-color: goldenrod;
+            margin-left: 100px;
+            margin-top: 0px;
+            width: 300px;
+            height: 50px;
+        }
+
+        .fromYourWatchList > input{
+            background-color: goldenrod;
+        }
+
+        .fromYourWatchList > p{
+            color: white;
+            margin: 20px 200px;
+        }
+
+        .fromYourWatchList > input{
+            background-color: goldenrod;
+            padding: 10px 20px;
+            margin: 20px 200px;
+        }
 
     </style>
 </head>
-<body>
+<body style="margin: 0px">
 <div class="main">
-    <div class = "header">
-        <div class = "logo">
+    <div class="header">
+        <div class="logo">
             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/IMDB_Logo_2016.svg/1200px-IMDB_Logo_2016.svg.png"
                  style="width: 70px; height: 30px">
         </div>
-        <div class = "menu">
+        <div class="menu">
             <input type="button" value="Menu">
         </div>
 
-        <div class = "search">
+        <div class="search">
             <input type="text" value="search IMDB">
         </div>
 
@@ -44,21 +105,60 @@
             <input type="button" value="Watch List">
         </div>
 
-        <div class = "signIn">
+        <div class="signIn">
             <input type="button" value="Sign In">
         </div>
     </div>
-    <div class = "content">
+    <div class="content">
         <div class="movies">
             <div class="images">
-
+                <img src="https://upload.wikimedia.org/wikipedia/en/b/be/The_Lord_of_the_Rings_-_The_Return_of_the_King_%282003%29.jpg"
+                     style="width: 400px; height: 400px">
             </div>
-            <div class = "upNext">
-
+            <div class="upNext">
+                <h1>Up next</h1>
+                <div class="trailers">
+                    <img src="https://upload.wikimedia.org/wikipedia/en/b/be/The_Lord_of_the_Rings_-_The_Return_of_the_King_%282003%29.jpg"
+                         style="width: 100px; height: 100px">
+                    <img src="https://upload.wikimedia.org/wikipedia/en/b/be/The_Lord_of_the_Rings_-_The_Return_of_the_King_%282003%29.jpg"
+                         style="width: 100px; height: 100px">
+                    <img src="https://upload.wikimedia.org/wikipedia/en/b/be/The_Lord_of_the_Rings_-_The_Return_of_the_King_%282003%29.jpg"
+                         style="width: 100px; height: 100px">
+                    <input type="button" value="Browse trailers">
+                </div>
             </div>
         </div>
+
+        <div class="featuredToday">
+            <h1> Featured Today </h1>
+            <div class="featuredTodayImages">
+                <img src="https://upload.wikimedia.org/wikipedia/en/b/be/The_Lord_of_the_Rings_-_The_Return_of_the_King_%282003%29.jpg"
+                     style="width: 200px; height: 200px; margin: 20px 50px 20px 0px">
+                <img src="https://upload.wikimedia.org/wikipedia/en/b/be/The_Lord_of_the_Rings_-_The_Return_of_the_King_%282003%29.jpg"
+                     style="width: 200px; height: 200px; margin: 20px 50px">
+                <img src="https://upload.wikimedia.org/wikipedia/en/b/be/The_Lord_of_the_Rings_-_The_Return_of_the_King_%282003%29.jpg"
+                     style="width: 200px; height: 200px; margin: 20px 50px">
+            </div>
+        </div>
+
+        <div class="whatToWatch">
+            <h1>What To Watch</h1>
+            <input type="button" value="Browse our What to Watch page">
+        </div>
+
+        <div class="fromYourWatchList">
+            <input type="button" value="From your Watchlist">
+            <p> Sign in to access your Watchlist </p>
+            <p>
+                Save shows and movies to keep track of what you want to watch
+            </p>
+
+            <input type="button" value="Sign in to IMDb">
+        </div>
     </div>
-    <div class="footer"></div>
+    <div class="footer">
+
+    </div>
 </div>
 </body>
 </html>
