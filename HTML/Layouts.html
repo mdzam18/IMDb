@@ -4,43 +4,61 @@
     <meta charset="UTF-8">
     <title>MainPage</title>
     <style>
-
-        #center{
-            width: 80%;
-            height: 80%;
-            margin: auto;
-        }
-        #main {
-            background-color: gold;
-            height: 700px;
+        .main{
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            background-color: black;
         }
 
-        #header {
-            background-color: red;
-            height: 100px;
+        .header{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
         }
 
-        #footer {
-            background-color: blue;
-            height: 150px;
+        .movies{
+            display: flex;
+            flex-direction: row;
         }
+
+
     </style>
 </head>
 <body>
-<div id="center">
-    <div id="header">
-        logo
-        menu
-        search
-        watchlist
-        sign in
+<div class="main">
+    <div class = "header">
+        <div class = "logo">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/IMDB_Logo_2016.svg/1200px-IMDB_Logo_2016.svg.png"
+                 style="width: 70px; height: 30px">
+        </div>
+        <div class = "menu">
+            <input type="button" value="Menu">
+        </div>
+
+        <div class = "search">
+            <input type="text" value="search IMDB">
+        </div>
+
+        <div class="watchList">
+            <input type="button" value="Watch List">
+        </div>
+
+        <div class = "signIn">
+            <input type="button" value="Sign In">
+        </div>
     </div>
-    <div id="main">
-        main
+    <div class = "content">
+        <div class="movies">
+            <div class="images">
+
+            </div>
+            <div class = "upNext">
+
+            </div>
+        </div>
     </div>
-    <div id="footer">
-        footer
-    </div>
+    <div class="footer"></div>
 </div>
 </body>
 </html>
