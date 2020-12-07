@@ -97,11 +97,11 @@
             flex-direction: row;
         }
 
-        .moreToWatch > h1{
+        .moreToWatch > h1 {
             color: white;
         }
 
-        .moreToWatch > h3{
+        .moreToWatch > h3 {
             color: gainsboro;
         }
 
@@ -110,7 +110,7 @@
             flex-direction: row;
         }
 
-        .buttons > input{
+        .buttons > input {
             width: 130px;
             height: 30px;
             background: none;
@@ -119,6 +119,30 @@
         }
 
 
+        .exclusiveVideos > h1 {
+            color: goldenrod;
+        }
+
+        .imdbOriginals{
+            display: flex;
+            flex-direction: row;
+        }
+
+        .line{
+            width: 4px;
+            height: 30px;
+            border-bottom: 2px solid goldenrod;
+            background-color: goldenrod;
+        }
+
+        .imdbOriginals > h1{
+            color: white;
+            margin: 0 0 0 5px;
+        }
+
+        .exclusiveVideos >h4{
+            color: gainsboro;
+        }
     </style>
 </head>
 <body style="margin: 0px">
@@ -206,13 +230,22 @@
             </div>
         </div>
 
-        <div class ="moreToWatch">
+        <div class="moreToWatch">
             <h1>More to watch</h1>
             <h3>IMDb helps you select the perfect next show or movie to watch.</h3>
             <div class="buttons">
                 <input type="button" value="Watch Guide">
                 <input type="button" value="Most Popular" style="margin-left: 40px">
             </div>
+        </div>
+
+        <div class="exclusiveVideos">
+            <h1>Exclusive Videos</h1>
+            <div class="imdbOriginals">
+                <div class="line"></div>
+                <h1>IMDb Originals</h1>
+            </div>
+           <h4> Celebrity interviews, trending entertainment stories, and expert analysis </h4>
         </div>
     </div>
     <div class="footer">
