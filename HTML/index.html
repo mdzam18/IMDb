@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>MainPage</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         .main {
             display: flex;
@@ -142,6 +143,17 @@
 
         .exclusiveVideos >h4{
             color: gainsboro;
+        }
+
+        @media only screen and (max-width: 600px)  {
+            #navigation{
+                display: flex;
+                flex-direction: column;
+            }
+
+            #navigation  a{
+                display: block;
+            }
         }
     </style>
 </head>
