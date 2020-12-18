@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
     <title>MainPage</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         .main {
             display: flex;
@@ -19,6 +19,7 @@
         }
 
         .content {
+            width: 100%;
             margin: 0px auto;
         }
 
@@ -30,15 +31,22 @@
 
         .upNext > h1 {
             color: goldenrod;
+            margin-top: 0px;
         }
 
         .upNext {
             margin-left: 200px;
         }
 
-        .trailers {
+        .trailers{
             display: flex;
-            flex-direction: column;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
+        .trailers > img{
+            width: 100px;
+            height: 100px;
         }
 
 
@@ -50,6 +58,12 @@
             display: flex;
             flex-direction: row;
             justify-content: center;
+        }
+
+        .featuredTodayImages > img{
+            width: 200px;
+            height: 200px;
+            margin: 20px 50px
         }
 
         .whatToWatch {
@@ -93,9 +107,9 @@
             color: goldenrod;
         }
 
-        .trailers {
-            display: flex;
-            flex-direction: row;
+        .images > img{
+            width: 400px;
+            height: 400px;
         }
 
         .moreToWatch > h1 {
@@ -146,13 +160,60 @@
         }
 
         @media only screen and (max-width: 600px)  {
-            #navigation{
+            .content{
+                width: 100%;
+            }
+
+            .movies{
                 display: flex;
                 flex-direction: column;
             }
 
-            #navigation  a{
-                display: block;
+            .header{
+                height: 100px;
+            }
+
+            .images{
+                width: 100%;
+                margin: 0px;
+            }
+
+            .images > img{
+                width: 100%;
+                height: 600px;
+            }
+
+            .upNext{
+                margin-left: 0px;
+            }
+
+            .trailers >img{
+                margin-right: 20px;
+                width: 20%;
+                height: 200px;
+            }
+
+            .featuredTodayImages{
+                justify-content: space-between;
+            }
+
+            .featuredTodayImages > img{
+                width: 30%;
+                height: 200px;
+                margin: 0px 0px;
+            }
+
+            .whatToWatch{
+                display: flex;
+                flex-direction: column;
+            }
+
+            .whatToWatch > h1{
+                margin: 0px auto;
+            }
+
+            .whatToWatch > input{
+                margin: 0px auto;
             }
         }
     </style>
@@ -183,18 +244,14 @@
     <div class="content">
         <div class="movies">
             <div class="images">
-                <img src="https://upload.wikimedia.org/wikipedia/en/b/be/The_Lord_of_the_Rings_-_The_Return_of_the_King_%282003%29.jpg"
-                     style="width: 400px; height: 400px">
+                <img src="https://upload.wikimedia.org/wikipedia/en/b/be/The_Lord_of_the_Rings_-_The_Return_of_the_King_%282003%29.jpg">
             </div>
             <div class="upNext">
                 <h1>Up next</h1>
                 <div class="trailers">
-                    <img src="https://upload.wikimedia.org/wikipedia/en/b/be/The_Lord_of_the_Rings_-_The_Return_of_the_King_%282003%29.jpg"
-                         style="width: 100px; height: 100px">
-                    <img src="https://upload.wikimedia.org/wikipedia/en/b/be/The_Lord_of_the_Rings_-_The_Return_of_the_King_%282003%29.jpg"
-                         style="width: 100px; height: 100px">
-                    <img src="https://upload.wikimedia.org/wikipedia/en/b/be/The_Lord_of_the_Rings_-_The_Return_of_the_King_%282003%29.jpg"
-                         style="width: 100px; height: 100px">
+                    <img src="https://upload.wikimedia.org/wikipedia/en/b/be/The_Lord_of_the_Rings_-_The_Return_of_the_King_%282003%29.jpg">
+                    <img src="https://upload.wikimedia.org/wikipedia/en/b/be/The_Lord_of_the_Rings_-_The_Return_of_the_King_%282003%29.jpg">
+                    <img src="https://upload.wikimedia.org/wikipedia/en/b/be/The_Lord_of_the_Rings_-_The_Return_of_the_King_%282003%29.jpg">
                     <input type="button" value="Browse trailers">
                 </div>
             </div>
@@ -203,12 +260,9 @@
         <div class="featuredToday">
             <h1> Featured Today </h1>
             <div class="featuredTodayImages">
-                <img src="https://upload.wikimedia.org/wikipedia/en/b/be/The_Lord_of_the_Rings_-_The_Return_of_the_King_%282003%29.jpg"
-                     style="width: 200px; height: 200px; margin: 20px 50px 20px 0px">
-                <img src="https://upload.wikimedia.org/wikipedia/en/b/be/The_Lord_of_the_Rings_-_The_Return_of_the_King_%282003%29.jpg"
-                     style="width: 200px; height: 200px; margin: 20px 50px">
-                <img src="https://upload.wikimedia.org/wikipedia/en/b/be/The_Lord_of_the_Rings_-_The_Return_of_the_King_%282003%29.jpg"
-                     style="width: 200px; height: 200px; margin: 20px 50px">
+                <img src="https://upload.wikimedia.org/wikipedia/en/b/be/The_Lord_of_the_Rings_-_The_Return_of_the_King_%282003%29.jpg"">
+                <img src="https://upload.wikimedia.org/wikipedia/en/b/be/The_Lord_of_the_Rings_-_The_Return_of_the_King_%282003%29.jpg"">
+                <img src="https://upload.wikimedia.org/wikipedia/en/b/be/The_Lord_of_the_Rings_-_The_Return_of_the_King_%282003%29.jpg"">
             </div>
         </div>
 
