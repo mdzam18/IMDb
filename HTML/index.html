@@ -15,35 +15,46 @@
         .header {
             display: flex;
             flex-direction: row;
-            justify-content: space-between;
             height: 80px;
+            justify-content: space-between;
         }
 
-        .logo > img{
-            width: 70px;
+        .logo {
+            width: 15%;
+        }
+
+        .logo > img {
+            width: 100%;
             height: 40px;
         }
 
-        .menu > input{
-            width: 70px;
+        .search {
+            width: 75%;
             height: 40px;
-            background-color: goldenrod;
+            margin-left: 5%;
         }
 
-        .search > input{
-            width: 250px;
+        .search > input {
+            width: 100%;
             height: 40px;
             background-color: white;
         }
 
-        .watchList > input{
-            width: 100px;
+        .watchList {
+            padding: 0px;
+        }
+
+        .watchList > input {
+            width: 100%;
             height: 40px;
             background-color: goldenrod;
         }
 
-        .signIn > input{
-            width: 70px;
+        .signIn {
+            padding: 0px;
+        }
+
+        .signIn > input {
             height: 40px;
             background-color: goldenrod;
         }
@@ -64,20 +75,39 @@
             margin-top: 0px;
         }
 
-        .upNext {
-            margin-left: 200px;
-        }
-
-        .trailers{
+        .buttonsDiv {
+            margin-right: 10px;
             display: flex;
             flex-direction: row;
             justify-content: space-between;
         }
 
-        .trailers > img{
+        .logoDiv{
+            display: flex;
+            flex-direction: row;
+            width: 50%;
+        }
+
+        .upNext {
+            margin-left: 10%;
+        }
+
+        .trailers {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
+        .trailers > img {
             width: 20%;
             height: 20%;
-            margin: 20px 50px 20px 0px;
+            margin: 2% 5% 2% 0px;
+        }
+
+        .trailers > input{
+            padding: 0px;
+            background-color: goldenrod;
+            height: 50%;
         }
 
         .featuredToday > h1 {
@@ -90,7 +120,7 @@
             justify-content: center;
         }
 
-        .featuredTodayImages > img{
+        .featuredTodayImages > img {
             width: 200px;
             height: 200px;
             margin: 20px 50px
@@ -137,8 +167,12 @@
             color: goldenrod;
         }
 
-        .images > img{
-            width: 400px;
+        .images{
+            width: 40%;
+        }
+
+        .images > img {
+            width: 100%;
             height: 400px;
         }
 
@@ -168,90 +202,90 @@
             color: goldenrod;
         }
 
-        .imdbOriginals{
+        .imdbOriginals {
             display: flex;
             flex-direction: row;
         }
 
-        .line{
+        .line {
             width: 4px;
             height: 30px;
             border-bottom: 2px solid goldenrod;
             background-color: goldenrod;
         }
 
-        .imdbOriginals > h1{
+        .imdbOriginals > h1 {
             color: white;
             margin: 0 0 0 5px;
         }
 
-        .exclusiveVideos >h4{
+        .exclusiveVideos > h4 {
             color: gainsboro;
         }
 
-        @media only screen and (max-width: 600px)  {
-            .content{
+        @media only screen and (max-width: 600px) {
+            .content {
                 width: 100%;
             }
 
-            .movies{
+            .movies {
                 display: flex;
                 flex-direction: column;
             }
 
-            .header{
+            .header {
                 height: 100px;
             }
 
-            .images{
+            .images {
                 width: 100%;
                 margin: 0px;
             }
 
-            .images > img{
+            .images > img {
                 width: 100%;
                 height: 600px;
             }
 
-            .upNext{
+            .upNext {
                 margin-left: 0px;
             }
 
-            .trailers >img{
-                margin-right: 20px;
-                width: 100px;
+            .trailers > img {
+                margin-right: 2%;
+                width: 10%;
                 height: 200px;
             }
 
-            .featuredTodayImages{
+            .featuredTodayImages {
                 justify-content: space-between;
             }
 
-            .featuredTodayImages > img{
+            .featuredTodayImages > img {
                 width: 30%;
                 height: 200px;
                 margin: 0px 0px;
             }
 
-            .whatToWatch{
+            .whatToWatch {
                 display: flex;
                 flex-direction: column;
             }
 
-            .whatToWatch > h1{
+            .whatToWatch > h1 {
                 margin: 0px auto;
             }
 
-            .whatToWatch > input{
+            .whatToWatch > input {
                 margin: 0px auto;
             }
 
-            .fromYourWatchList > p{
+            .fromYourWatchList > p {
                 width: 100%;
                 margin-left: 20%;
             }
 
-            .buttons > input{
+            .buttons > input {
                 width: 150px;
                 height: 40px;
             }
@@ -261,23 +295,24 @@
 <body style="margin: 0px">
 <div class="main">
     <div class="header">
-        <div class="logo">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/IMDB_Logo_2016.svg/1200px-IMDB_Logo_2016.svg.png">
-        </div>
-        <div class="menu">
-            <input type="button" value="Menu">
+        <div class="logoDiv">
+            <div class="logo">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/IMDB_Logo_2016.svg/1200px-IMDB_Logo_2016.svg.png">
+            </div>
+
+            <div class="search">
+                <input type="text" value="search IMDB">
+            </div>
         </div>
 
-        <div class="search">
-            <input type="text" value="search IMDB">
-        </div>
+        <div class="buttonsDiv">
+            <div class="watchList">
+                <input type="button" value="Watch List">
+            </div>
 
-        <div class="watchList">
-            <input type="button" value="Watch List">
-        </div>
-
-        <div class="signIn">
-            <input type="button" value="Sign In">
+            <div class="signIn">
+                <input type="button" value="Sign In">
+            </div>
         </div>
     </div>
     <div class="content">
@@ -345,7 +380,7 @@
                 <div class="line"></div>
                 <h1>IMDb Originals</h1>
             </div>
-           <h4> Celebrity interviews, trending entertainment stories, and expert analysis </h4>
+            <h4> Celebrity interviews, trending entertainment stories, and expert analysis </h4>
         </div>
     </div>
     <div class="footer">
