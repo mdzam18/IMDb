@@ -76,13 +76,12 @@
         }
 
         .buttonsDiv {
-            margin-right: 10px;
             display: flex;
             flex-direction: row;
             justify-content: space-between;
         }
 
-        .logoDiv{
+        .logoDiv {
             display: flex;
             flex-direction: row;
             width: 50%;
@@ -104,7 +103,7 @@
             margin: 2% 5% 2% 0px;
         }
 
-        .trailers > input{
+        .trailers > input {
             padding: 0px;
             background-color: goldenrod;
             height: 50%;
@@ -117,16 +116,19 @@
         .featuredTodayImages {
             display: flex;
             flex-direction: row;
-            justify-content: center;
+            justify-content: space-between;
+            height: 10%;
+            width: 70%;
+            margin: 0px auto;
         }
 
         .featuredTodayImages > img {
-            width: 200px;
-            height: 200px;
-            margin: 20px 50px
+            width: 30%;
+            height: 30%;
         }
 
         .whatToWatch {
+            margin-top: 50px;
             display: flex;
             flex-direction: row;
         }
@@ -138,14 +140,15 @@
 
         .whatToWatch > input {
             background-color: goldenrod;
-            margin-left: 100px;
-            margin-top: 0px;
-            width: 300px;
-            height: 50px;
+            margin: 0px auto;
+            height: 45px;
+            padding: 0px 20px;
+            border-radius: 10%;
         }
 
-        .fromYourWatchList > input {
+        .wathcListButton > input {
             background-color: goldenrod;
+            margin-left: 10px;
         }
 
         .fromYourWatchList > p {
@@ -153,10 +156,9 @@
             margin: 20px 200px;
         }
 
-        .fromYourWatchList > input {
-            background-color: goldenrod;
-            padding: 10px 20px;
-            margin: 20px 200px;
+        .wathcListButton{
+            display: flex;
+            flex-direction: row;
         }
 
         .fanFavorites > input {
@@ -167,7 +169,7 @@
             color: goldenrod;
         }
 
-        .images{
+        .images {
             width: 40%;
         }
 
@@ -251,22 +253,6 @@
                 margin-left: 0px;
             }
 
-            .trailers > img {
-                margin-right: 2%;
-                width: 10%;
-                height: 200px;
-            }
-
-            .featuredTodayImages {
-                justify-content: space-between;
-            }
-
-            .featuredTodayImages > img {
-                width: 30%;
-                height: 200px;
-                margin: 0px 0px;
-            }
-
             .whatToWatch {
                 display: flex;
                 flex-direction: column;
@@ -285,6 +271,14 @@
                 margin-left: 20%;
             }
 
+            .featuredTodayImages {
+                justify-content: space-between;
+            }
+
+            .featuredToday > h1 {
+                text-align: center;
+            }
+
             .buttons > input {
                 width: 150px;
                 height: 40px;
@@ -292,8 +286,8 @@
         }
     </style>
 </head>
-<body style="margin: 0px">
-<div class="main">
+<body style="background-color: black">
+<div class="main" style="width: 80%; margin: 0px auto;">
     <div class="header">
         <div class="logoDiv">
             <div class="logo">
@@ -346,7 +340,10 @@
         </div>
 
         <div class="fromYourWatchList">
-            <input type="button" value="From your Watchlist">
+            <div class="wathcListButton">
+                <div class="line"></div>
+                <input type="button" value="From your Watchlist">
+            </div>
             <p> Sign in to access your Watchlist </p>
             <p>
                 Save shows and movies to keep track of what you want to watch
