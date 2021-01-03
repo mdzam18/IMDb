@@ -110,6 +110,25 @@
             height: 50%;
         }
 
+        .trailers2 {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
+        .trailers2 > img {
+            width: 20%;
+            height: 20%;
+            margin: 2% 5% 2% 0px;
+        }
+
+        .trailers2 > input {
+            padding: 0px;
+            background-color: goldenrod;
+            height: 50%;
+        }
+
+
         .featuredToday > h1 {
             color: goldenrod;
         }
@@ -132,6 +151,7 @@
             margin-top: 50px;
             display: flex;
             flex-direction: row;
+            margin-bottom: 20px;
         }
 
         .whatToWatch > h1 {
@@ -154,20 +174,29 @@
 
         .fromYourWatchList > p {
             color: white;
-            margin: 20px 200px;
         }
 
-        .wathcListButton{
+        .fromYourWatchList > input {
+            background-color: goldenrod;
+        }
+
+        .wathcListButton {
             display: flex;
             flex-direction: row;
         }
 
-        .fanFavorites > input {
+        .fanFavorites2 > input {
             padding: 0;
             border: none;
             background: none;
             font-size: 40px;
             color: goldenrod;
+            margin-left: 2%;
+        }
+
+        .fanFavorites2{
+            display: flex;
+            flex-direction: row;
         }
 
         .images {
@@ -215,6 +244,7 @@
             height: 30px;
             border-bottom: 2px solid goldenrod;
             background-color: goldenrod;
+            margin: 0px;
         }
 
         .imdbOriginals > h1 {
@@ -228,9 +258,8 @@
 
         @media only screen and (max-width: 600px) {
 
-            .main{
+            .main {
                 width: 100%;
-                margin: 0px 0px;
             }
 
             .content {
@@ -263,6 +292,7 @@
             .whatToWatch {
                 display: flex;
                 flex-direction: column;
+                margin-bottom: 20px;
             }
 
             .whatToWatch > h1 {
@@ -273,9 +303,23 @@
                 margin: 0px auto;
             }
 
+            .wathcListButton > input {
+                width: 50%;
+                height: 35px;
+            }
+
+            .fromYourWatchList {
+                width: 100%;
+            }
+
             .fromYourWatchList > p {
                 width: 100%;
-                margin-left: 20%;
+            }
+
+            .fromYourWatchList > input {
+                width: 80%;
+                height: 50px;
+                margin-left: 10%;
             }
 
             .featuredTodayImages {
@@ -290,10 +334,25 @@
                 width: 150px;
                 height: 40px;
             }
+
+            .trailers2 {
+                display: flex;
+                flex-direction: column;
+            }
+
+            .trailers2 > img {
+                width: 80%;
+                height: 40%;
+                margin: 5% 10%;
+            }
+
+            .fanFavorites2{
+                margin: 5% auto 0px auto;
+            }
         }
     </style>
 </head>
-<body style="background-color: black">
+<body style="background-color: black;">
 <div class="main">
     <div class="header">
         <div class="logoDiv">
@@ -359,9 +418,11 @@
             <input type="button" value="Sign in to IMDb">
         </div>
         <div class="fanFavorites">
-            <input type="button" value="Fan Favorites">
-            <div class="trailers">
-                <img src="https://upload.wikimedia.org/wikipedia/en/b/be/The_Lord_of_the_Rings_-_The_Return_of_the_King_%282003%29.jpg">
+            <div class="fanFavorites2">
+                <div class="line"></div>
+                <input type="button" value="Fan Favorites">
+            </div>
+            <div class="trailers2">
                 <img src="https://upload.wikimedia.org/wikipedia/en/b/be/The_Lord_of_the_Rings_-_The_Return_of_the_King_%282003%29.jpg">
                 <img src="https://upload.wikimedia.org/wikipedia/en/b/be/The_Lord_of_the_Rings_-_The_Return_of_the_King_%282003%29.jpg">
                 <img src="https://upload.wikimedia.org/wikipedia/en/b/be/The_Lord_of_the_Rings_-_The_Return_of_the_King_%282003%29.jpg">
