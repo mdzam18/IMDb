@@ -8,7 +8,8 @@
         .main {
             display: flex;
             flex-direction: column;
-            width: 100%;
+            width: 80%;
+            margin: 0px auto;
             background-color: black;
         }
 
@@ -226,6 +227,12 @@
         }
 
         @media only screen and (max-width: 600px) {
+
+            .main{
+                width: 100%;
+                margin: 0px 0px;
+            }
+
             .content {
                 width: 100%;
             }
@@ -287,7 +294,7 @@
     </style>
 </head>
 <body style="background-color: black">
-<div class="main" style="width: 80%; margin: 0px auto;">
+<div class="main">
     <div class="header">
         <div class="logoDiv">
             <div class="logo">
