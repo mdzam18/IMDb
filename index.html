@@ -32,7 +32,10 @@
     <div class="content">
         <div class="movies">
             <div class="images">
-                <img src="https://upload.wikimedia.org/wikipedia/en/b/be/The_Lord_of_the_Rings_-_The_Return_of_the_King_%282003%29.jpg">
+                <button class="display-left" onclick="plusDivs(-1)">&#10094;</button>
+                <img class = "mainImage" src="https://upload.wikimedia.org/wikipedia/en/b/be/The_Lord_of_the_Rings_-_The_Return_of_the_King_%282003%29.jpg">
+                <img class = "mainImage" src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSppDgk99BKVA4TJtWc1FN4-HUkdWrFNfMm1-M0nQ01sIOcbTZu">
+                <button class="display-right" onclick="plusDivs(1)">&#10095;</button>
             </div>
             <div class="upNext">
                 <h1>Up next</h1>
@@ -106,5 +109,29 @@
         <h4> © 2021 by IMDb.com, Inc.</h4>
     </div>
 </div>
+
+<script>
+    var slideIndex = 1;
+    showDivs(slideIndex);
+
+    function plusDivs(n) {
+        showDivs(slideIndex += n);
+    }
+
+    function showDivs(n) {
+        var i;
+        var x = document.getElementsByClassName("mainImage");
+        if (n > x.length) {slideIndex = 1}
+        if (n < 1) {slideIndex = x.length}
+        for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";
+        }
+        x[slideIndex-1].style.display = "block";
+    }
+</script>
+
+</body>
+</html>
+
 </body>
 </html>
