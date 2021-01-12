@@ -33,17 +33,29 @@
         <div class="movies">
             <div class="images">
                 <button class="display-left" onclick="plusDivs(-1)">&#10094;</button>
-                <img class = "mainImage" src="https://upload.wikimedia.org/wikipedia/en/b/be/The_Lord_of_the_Rings_-_The_Return_of_the_King_%282003%29.jpg">
-                <img class = "mainImage" src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSppDgk99BKVA4TJtWc1FN4-HUkdWrFNfMm1-M0nQ01sIOcbTZu">
+                <img class="mainImage"
+                     src="https://upload.wikimedia.org/wikipedia/en/b/be/The_Lord_of_the_Rings_-_The_Return_of_the_King_%282003%29.jpg">
+                <img class="mainImage"
+                     src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSppDgk99BKVA4TJtWc1FN4-HUkdWrFNfMm1-M0nQ01sIOcbTZu">
                 <button class="display-right" onclick="plusDivs(1)">&#10095;</button>
             </div>
             <div class="upNext">
                 <h1>Up next</h1>
                 <div class="trailers">
-                    <img src="https://upload.wikimedia.org/wikipedia/en/b/be/The_Lord_of_the_Rings_-_The_Return_of_the_King_%282003%29.jpg">
-                    <img src="https://upload.wikimedia.org/wikipedia/en/b/be/The_Lord_of_the_Rings_-_The_Return_of_the_King_%282003%29.jpg">
-                    <img src="https://upload.wikimedia.org/wikipedia/en/b/be/The_Lord_of_the_Rings_-_The_Return_of_the_King_%282003%29.jpg">
-                    <input type="button" value="Browse trailers">
+                    <button class="display-left" onclick="plusDivs2(-3)">&#10094;</button>
+                    <img class="trailerImage"
+                         src="https://upload.wikimedia.org/wikipedia/en/b/be/The_Lord_of_the_Rings_-_The_Return_of_the_King_%282003%29.jpg">
+                    <img class="trailerImage"
+                         src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSppDgk99BKVA4TJtWc1FN4-HUkdWrFNfMm1-M0nQ01sIOcbTZu">
+                    <img class="trailerImage"
+                         src="https://upload.wikimedia.org/wikipedia/en/b/be/The_Lord_of_the_Rings_-_The_Return_of_the_King_%282003%29.jpg">
+                    <img class="trailerImage"
+                         src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSppDgk99BKVA4TJtWc1FN4-HUkdWrFNfMm1-M0nQ01sIOcbTZu">
+                    <img class="trailerImage"
+                         src="https://upload.wikimedia.org/wikipedia/en/b/be/The_Lord_of_the_Rings_-_The_Return_of_the_King_%282003%29.jpg">
+                    <img class="trailerImage"
+                         src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSppDgk99BKVA4TJtWc1FN4-HUkdWrFNfMm1-M0nQ01sIOcbTZu">
+                    <button class="display-right" onclick="plusDivs2(3)">&#10095;</button>
                 </div>
             </div>
         </div>
@@ -111,6 +123,32 @@
 </div>
 
 <script>
+    var slideIndex2 = 3;
+    showDivs2(slideIndex2);
+
+    function plusDivs2(n) {
+        showDivs2(slideIndex2 += n);
+    }
+
+    function showDivs2(n) {
+        var i;
+        var x = document.getElementsByClassName("trailerImage");
+        if (n > x.length) {
+            slideIndex2 = 3
+        }
+        if (n < 1) {
+            slideIndex2 = x.length
+        }
+        for (i = 0; i < x.length; i+=1) {
+            x[i].style.display = "none";
+        }
+        x[slideIndex2 - 1].style.display = "block";
+        x[slideIndex2 - 2].style.display = "block";
+        x[slideIndex2 - 3].style.display = "block";
+    }
+</script>
+
+<script>
     var slideIndex = 1;
     showDivs(slideIndex);
 
@@ -121,13 +159,62 @@
     function showDivs(n) {
         var i;
         var x = document.getElementsByClassName("mainImage");
-        if (n > x.length) {slideIndex = 1}
-        if (n < 1) {slideIndex = x.length}
+        if (n > x.length) {
+            slideIndex = 1
+        }
+        if (n < 1) {
+            slideIndex = x.length
+        }
         for (i = 0; i < x.length; i++) {
             x[i].style.display = "none";
         }
-        x[slideIndex-1].style.display = "block";
+        x[slideIndex - 1].style.display = "block";
     }
+
+    /*    var unirest = require("unirest");
+
+        var req = unirest("GET", "https://imdb8.p.rapidapi.com/actors/list-born-today");
+
+        req.query({
+            "month": "7",
+            "day": "27"
+        });
+
+        req.headers({
+            "x-rapidapi-key": "9dd2fb5d00mshf542bbe7a288501p194b73jsnc0b091569688",
+            "x-rapidapi-host": "imdb8.p.rapidapi.com",
+            "useQueryString": true
+        });
+
+
+        req.end(function (res) {
+            if (res.error) throw new Error(res.error);
+
+            console.log(res.body);
+        }); */
+</script>
+
+<script>
+    var unirest = require("unirest");
+
+    var req = unirest("GET", "https://imdb8.p.rapidapi.com/title/auto-complete");
+
+    req.query({
+        "q": "game of thr"
+    });
+
+    req.headers({
+        "x-rapidapi-key": "9dd2fb5d00mshf542bbe7a288501p194b73jsnc0b091569688",
+        "x-rapidapi-host": "imdb8.p.rapidapi.com",
+        "useQueryString": true
+    });
+
+
+    req.end(function (res) {
+        if (res.error) throw new Error(res.error);
+
+        console.log(res.body);
+    });
 </script>
 
 </body>
