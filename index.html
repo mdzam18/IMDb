@@ -63,9 +63,14 @@
         <div class="featuredToday">
             <h1> Featured Today </h1>
             <div class="featuredTodayImages">
-                <img src="https://upload.wikimedia.org/wikipedia/en/b/be/The_Lord_of_the_Rings_-_The_Return_of_the_King_%282003%29.jpg"">
-                <img src="https://upload.wikimedia.org/wikipedia/en/b/be/The_Lord_of_the_Rings_-_The_Return_of_the_King_%282003%29.jpg"">
-                <img src="https://upload.wikimedia.org/wikipedia/en/b/be/The_Lord_of_the_Rings_-_The_Return_of_the_King_%282003%29.jpg"">
+                <button class="display-left" onclick="plusDivs3(-3)">&#10094;</button>
+                <img class="images2"
+                     src="https://upload.wikimedia.org/wikipedia/en/b/be/The_Lord_of_the_Rings_-_The_Return_of_the_King_%282003%29.jpg"">
+                <img class="images2"
+                     src="https://upload.wikimedia.org/wikipedia/en/b/be/The_Lord_of_the_Rings_-_The_Return_of_the_King_%282003%29.jpg"">
+                <img class="images2"
+                     src="https://upload.wikimedia.org/wikipedia/en/b/be/The_Lord_of_the_Rings_-_The_Return_of_the_King_%282003%29.jpg"">
+                <button class="display-right" onclick="plusDivs3(3)">&#10095;</button>
             </div>
         </div>
 
@@ -92,10 +97,18 @@
                 <input type="button" value="Fan Favorites">
             </div>
             <div class="trailers2">
-                <img src="https://upload.wikimedia.org/wikipedia/en/b/be/The_Lord_of_the_Rings_-_The_Return_of_the_King_%282003%29.jpg">
-                <img src="https://upload.wikimedia.org/wikipedia/en/b/be/The_Lord_of_the_Rings_-_The_Return_of_the_King_%282003%29.jpg">
-                <img src="https://upload.wikimedia.org/wikipedia/en/b/be/The_Lord_of_the_Rings_-_The_Return_of_the_King_%282003%29.jpg">
-                <img src="https://upload.wikimedia.org/wikipedia/en/b/be/The_Lord_of_the_Rings_-_The_Return_of_the_King_%282003%29.jpg">
+                <button class="display-left" onclick="plusDivs4(-1)">&#10094;</button>
+                <img class="images3"
+                     src="https://upload.wikimedia.org/wikipedia/en/b/be/The_Lord_of_the_Rings_-_The_Return_of_the_King_%282003%29.jpg">
+                <img class="images3"
+                     src="https://upload.wikimedia.org/wikipedia/en/b/be/The_Lord_of_the_Rings_-_The_Return_of_the_King_%282003%29.jpg">
+                <img class="images3"
+                     src="https://upload.wikimedia.org/wikipedia/en/b/be/The_Lord_of_the_Rings_-_The_Return_of_the_King_%282003%29.jpg">
+                <img class="images3"
+                     src="https://upload.wikimedia.org/wikipedia/en/b/be/The_Lord_of_the_Rings_-_The_Return_of_the_King_%282003%29.jpg">
+                <img class="images3"
+                     src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSppDgk99BKVA4TJtWc1FN4-HUkdWrFNfMm1-M0nQ01sIOcbTZu">
+                <button class="display-right" onclick="plusDivs4(1)">&#10095;</button>
             </div>
         </div>
 
@@ -123,6 +136,59 @@
 </div>
 
 <script>
+    var slideIndex3 = 3;
+    showDivs3(slideIndex3);
+
+    function plusDivs3(n) {
+        showDivs3(slideIndex3 += n);
+    }
+
+    function showDivs3(n) {
+        var i;
+        var x = document.getElementsByClassName("images2");
+        if (n > x.length) {
+            slideIndex3 = 3
+        }
+        if (n < 1) {
+            slideIndex3 = x.length
+        }
+        for (i = 0; i < x.length; i += 1) {
+            x[i].style.display = "none";
+        }
+        x[slideIndex3 - 1].style.display = "block";
+        x[slideIndex3 - 2].style.display = "block";
+        x[slideIndex3 - 3].style.display = "block";
+    }
+</script>
+
+<script>
+    var slideIndex4 = 4;
+    showDivs4(slideIndex4);
+
+    function plusDivs4(n) {
+        showDivs4(slideIndex4 += n);
+    }
+
+    function showDivs4(n) {
+        var i;
+        var x = document.getElementsByClassName("images3");
+        if (n > x.length) {
+            slideIndex4 = 4
+        }
+        if (n < 1) {
+            slideIndex4 = x.length
+        }
+        for (i = 0; i < x.length; i += 1) {
+            x[i].style.display = "none";
+        }
+        x[slideIndex4 - 1].style.display = "block";
+        x[slideIndex4 - 2].style.display = "block";
+        x[slideIndex4 - 3].style.display = "block";
+        x[slideIndex4 - 4].style.display = "block";
+    }
+</script>
+
+<script>
     var slideIndex2 = 3;
     showDivs2(slideIndex2);
 
@@ -139,7 +205,7 @@
         if (n < 1) {
             slideIndex2 = x.length
         }
-        for (i = 0; i < x.length; i+=1) {
+        for (i = 0; i < x.length; i += 1) {
             x[i].style.display = "none";
         }
         x[slideIndex2 - 1].style.display = "block";
