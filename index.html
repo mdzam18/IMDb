@@ -97,7 +97,7 @@
                 <input type="button" value="Fan Favorites">
             </div>
             <div class="trailers2">
-                <button class="display-left" onclick="plusDivs4(-1)">&#10094;</button>
+                <button class="display-left" onclick="plusDivs4(-3)">&#10094;</button>
                 <img class="images3"
                      src="https://upload.wikimedia.org/wikipedia/en/b/be/The_Lord_of_the_Rings_-_The_Return_of_the_King_%282003%29.jpg">
                 <img class="images3"
@@ -108,7 +108,7 @@
                      src="https://upload.wikimedia.org/wikipedia/en/b/be/The_Lord_of_the_Rings_-_The_Return_of_the_King_%282003%29.jpg">
                 <img class="images3"
                      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSppDgk99BKVA4TJtWc1FN4-HUkdWrFNfMm1-M0nQ01sIOcbTZu">
-                <button class="display-right" onclick="plusDivs4(1)">&#10095;</button>
+                <button class="display-right" onclick="plusDivs4(3)">&#10095;</button>
             </div>
         </div>
 
@@ -162,7 +162,7 @@
 </script>
 
 <script>
-    var slideIndex4 = 4;
+    var slideIndex4 = 3;
     showDivs4(slideIndex4);
 
     function plusDivs4(n) {
@@ -173,7 +173,7 @@
         var i;
         var x = document.getElementsByClassName("images3");
         if (n > x.length) {
-            slideIndex4 = 4
+            slideIndex4 = 3
         }
         if (n < 1) {
             slideIndex4 = x.length
@@ -181,10 +181,21 @@
         for (i = 0; i < x.length; i += 1) {
             x[i].style.display = "none";
         }
-        x[slideIndex4 - 1].style.display = "block";
-        x[slideIndex4 - 2].style.display = "block";
-        x[slideIndex4 - 3].style.display = "block";
-        x[slideIndex4 - 4].style.display = "block";
+        if ((slideIndex4 - 1) < 0){
+            x[slideIndex4 % 3 - 1].style.display = "block";
+        } else {
+            x[slideIndex4 - 1].style.display = "block";
+        }
+        if ((slideIndex4 - 2) < 0){
+            x[slideIndex4 % 3 - 2].style.display = "block";
+        } else {
+            x[slideIndex4 - 2].style.display = "block";
+        }
+        if ((slideIndex4 - 3) < 0){
+            x[slideIndex4 % 3 - 3].style.display = "block";
+        } else {
+            x[slideIndex4 - 3].style.display = "block";
+        }
     }
 </script>
 
