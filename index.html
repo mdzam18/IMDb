@@ -3,9 +3,9 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
-    <title>MainPage</title>
     <link rel="stylesheet" href="mystyle.css">
     <script src="api.js"></script>
+    <title>MainPage</title>
 </head>
 <body style="background-color: black;">
 <div class="main">
@@ -66,11 +66,11 @@
             <div class="featuredTodayImages">
                 <button class="display-left" onclick="plusDivs3(-3)">&#10094;</button>
                 <img class="images2"
-                     src="https://upload.wikimedia.org/wikipedia/en/b/be/The_Lord_of_the_Rings_-_The_Return_of_the_King_%282003%29.jpg"">
+                     src="https://upload.wikimedia.org/wikipedia/en/b/be/The_Lord_of_the_Rings_-_The_Return_of_the_King_%282003%29.jpg">
                 <img class="images2"
-                     src="https://upload.wikimedia.org/wikipedia/en/b/be/The_Lord_of_the_Rings_-_The_Return_of_the_King_%282003%29.jpg"">
+                     src="https://upload.wikimedia.org/wikipedia/en/b/be/The_Lord_of_the_Rings_-_The_Return_of_the_King_%282003%29.jpg">
                 <img class="images2"
-                     src="https://upload.wikimedia.org/wikipedia/en/b/be/The_Lord_of_the_Rings_-_The_Return_of_the_King_%282003%29.jpg"">
+                     src="https://upload.wikimedia.org/wikipedia/en/b/be/The_Lord_of_the_Rings_-_The_Return_of_the_King_%282003%29.jpg">
                 <button class="display-right" onclick="plusDivs3(3)">&#10095;</button>
             </div>
         </div>
@@ -135,6 +135,8 @@
         <h4> © 2021 by IMDb.com, Inc.</h4>
     </div>
 </div>
+<h1>sasuke</h1>
+<p id="demo" style="color: pink"></p>
 
 <script>
     var slideIndex3 = 3;
@@ -231,6 +233,7 @@
     showDivs(slideIndex);
 
     function plusDivs(n) {
+        loadImage();
         showDivs(slideIndex += n);
     }
 
