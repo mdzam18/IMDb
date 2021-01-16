@@ -4,7 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
     <link rel="stylesheet" href="mystyle.css">
-    <script src="api.js"></script>
+    <script src="script.js"></script>
     <title>MainPage</title>
 </head>
 <body style="background-color: black;">
@@ -227,77 +227,6 @@
         x[slideIndex2 - 3].style.display = "block";
     }
 </script>
-
-<script>
-    var slideIndex = 1;
-    showDivs(slideIndex);
-
-    function plusDivs(n) {
-        loadImage();
-        showDivs(slideIndex += n);
-    }
-
-    function showDivs(n) {
-        var i;
-        var x = document.getElementsByClassName("mainImage");
-        if (n > x.length) {
-            slideIndex = 1
-        }
-        if (n < 1) {
-            slideIndex = x.length
-        }
-        for (i = 0; i < x.length; i++) {
-            x[i].style.display = "none";
-        }
-        x[slideIndex - 1].style.display = "block";
-    }
-
-    /*    var unirest = require("unirest");
-
-        var req = unirest("GET", "https://imdb8.p.rapidapi.com/actors/list-born-today");
-
-        req.query({
-            "month": "7",
-            "day": "27"
-        });
-
-        req.headers({
-            "x-rapidapi-key": "9dd2fb5d00mshf542bbe7a288501p194b73jsnc0b091569688",
-            "x-rapidapi-host": "imdb8.p.rapidapi.com",
-            "useQueryString": true
-        });
-
-
-        req.end(function (res) {
-            if (res.error) throw new Error(res.error);
-
-            console.log(res.body);
-        }); */
-</script>
-
-<script>
-/*    var unirest = require("unirest");
-
-    var req = unirest("GET", "https://imdb8.p.rapidapi.com/title/auto-complete");
-
-    req.query({
-        "q": "game of thr"
-    });
-
-    req.headers({
-        "x-rapidapi-key": "9dd2fb5d00mshf542bbe7a288501p194b73jsnc0b091569688",
-        "x-rapidapi-host": "imdb8.p.rapidapi.com",
-        "useQueryString": true
-    });
-
-
-    req.end(function (res) {
-        if (res.error) throw new Error(res.error);
-
-        console.log(res.body);
-    }); */
-</script>
-
 </body>
 </html>
 
