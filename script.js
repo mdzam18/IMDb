@@ -1,4 +1,4 @@
-function updateImage(image) {
+async function updateImage(image) {
     console.log(image);
     curr = document.getElementsByClassName("images")[0];
     curr.innerHTML = `
@@ -9,7 +9,7 @@ function updateImage(image) {
             `;
 }
 
-function plusDivs(n) {
+async function plusDivs(n) {
     i = i + n;
     if (i < 0) {
         i = 4;
@@ -20,9 +20,9 @@ function plusDivs(n) {
     updateImage(urls[i]);
 }
 
-function getImages(id) {
+async function getImages(id) {
     id = id.substring(7);
-    fetch("https://imdb8.p.rapidapi.com/title/get-base?tconst=" + id, {
+    await fetch("https://imdb8.p.rapidapi.com/title/get-base?tconst=" + id, {
         "method": "GET",
         "headers": {
             "x-rapidapi-key": "9dd2fb5d00mshf542bbe7a288501p194b73jsnc0b091569688",
@@ -32,7 +32,7 @@ function getImages(id) {
         let images = response.json();
         images.then(data => {
             image = data.image.url;
-            if(i === 0 && isFirst){
+            if (i === 0 && isFirst) {
                 updateImage(image);
                 isFirst = false;
             }
@@ -49,8 +49,8 @@ let i = 0;
 let idsData = [];
 let urls = [];
 
-window.onload = function () {
-    fetch("https://imdb8.p.rapidapi.com/title/get-most-popular-tv-shows?homeCountry=US&purchaseCountry=US&currentCountry=US", {
+window.onload = async function () {
+    await fetch("https://imdb8.p.rapidapi.com/title/get-most-popular-tv-shows?homeCountry=US&purchaseCountry=US&currentCountry=US", {
         "method": "GET",
         "headers": {
             "x-rapidapi-key": "9dd2fb5d00mshf542bbe7a288501p194b73jsnc0b091569688",
@@ -61,7 +61,7 @@ window.onload = function () {
             let ids = response.json();
             ids.then(data => {
                 idsData = data;
-                for (j = 0; j < 5; j++) {
+                for (j = 0; j < 5; j++) { //მეტზე ერორს აგდებს
                     getImages(data[j]);
                 }
             });
