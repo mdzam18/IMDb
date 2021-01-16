@@ -1,5 +1,4 @@
-async function updateImage(image) {
-    console.log(image);
+/*async function updateImage(image) {
     curr = document.getElementsByClassName("images")[0];
     curr.innerHTML = `
                 <button class="display-left" onclick="plusDivs(-1)">&#10094;</button>
@@ -30,6 +29,7 @@ async function getImages(id) {
         }
     }).then(response => {
         let images = response.json();
+        console.log(images);
         images.then(data => {
             image = data.image.url;
             if (i === 0 && isFirst) {
@@ -69,4 +69,19 @@ window.onload = async function () {
         .catch(err => {
             console.error(err);
         });
-}
+} */
+
+fetch("https://imdb23.p.rapidapi.comhttps//filmets.info/test", {
+    "method": "GET",
+    "headers": {
+        "x-rapidapi-key": "9dd2fb5d00mshf542bbe7a288501p194b73jsnc0b091569688",
+        "x-rapidapi-host": "imdb23.p.rapidapi.com"
+    }
+})
+    .then(response => {
+        let bla = response.json();
+        console.log(bla);
+    })
+    .catch(err => {
+        console.error(err);
+    });

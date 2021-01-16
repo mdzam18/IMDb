@@ -38,6 +38,30 @@
     justify-content: space-between;
 }
 
+.image4{
+    width: 15%;
+    height: 15%;
+}
+
+.movie-info{
+    display: flex;
+    flex-direction: column;
+    background-color: lightgrey;
+    width: 60%;
+    margin-left: 20%;
+    border: solid 2px white;
+}
+
+.upper-half{
+    display: flex;
+    flex-direction: row;
+}
+
+.description{
+    display: flex;
+    flex-direction: column;
+}
+
 .display-right {
     opacity: 1;
     cursor: pointer;
