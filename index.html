@@ -48,12 +48,6 @@
                          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSppDgk99BKVA4TJtWc1FN4-HUkdWrFNfMm1-M0nQ01sIOcbTZu">
                     <img class="trailerImage"
                          src="https://upload.wikimedia.org/wikipedia/en/b/be/The_Lord_of_the_Rings_-_The_Return_of_the_King_%282003%29.jpg">
-                    <img class="trailerImage"
-                         src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSppDgk99BKVA4TJtWc1FN4-HUkdWrFNfMm1-M0nQ01sIOcbTZu">
-                    <img class="trailerImage"
-                         src="https://upload.wikimedia.org/wikipedia/en/b/be/The_Lord_of_the_Rings_-_The_Return_of_the_King_%282003%29.jpg">
-                    <img class="trailerImage"
-                         src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSppDgk99BKVA4TJtWc1FN4-HUkdWrFNfMm1-M0nQ01sIOcbTZu">
                     <button class="display-right" onclick="plusDivs2(3)">&#10095;</button>
                 </div>
             </div>
@@ -135,32 +129,6 @@
 </div>
 
 <script>
-    var slideIndex3 = 3;
-    showDivs3(slideIndex3);
-
-    function plusDivs3(n) {
-        showDivs3(slideIndex3 += n);
-    }
-
-    function showDivs3(n) {
-        var i;
-        var x = document.getElementsByClassName("images2");
-        if (n > x.length) {
-            slideIndex3 = 3
-        }
-        if (n < 1) {
-            slideIndex3 = x.length
-        }
-        for (i = 0; i < x.length; i += 1) {
-            x[i].style.display = "none";
-        }
-        x[slideIndex3 - 1].style.display = "block";
-        x[slideIndex3 - 2].style.display = "block";
-        x[slideIndex3 - 3].style.display = "block";
-    }
-</script>
-
-<script>
     var slideIndex4 = 3;
     showDivs4(slideIndex4);
 
@@ -195,32 +163,6 @@
         } else {
             x[slideIndex4 - 3].style.display = "block";
         }
-    }
-</script>
-
-<script>
-    var slideIndex2 = 3;
-    showDivs2(slideIndex2);
-
-    function plusDivs2(n) {
-        showDivs2(slideIndex2 += n);
-    }
-
-    function showDivs2(n) {
-        var i;
-        var x = document.getElementsByClassName("trailerImage");
-        if (n > x.length) {
-            slideIndex2 = 3
-        }
-        if (n < 1) {
-            slideIndex2 = x.length
-        }
-        for (i = 0; i < x.length; i += 1) {
-            x[i].style.display = "none";
-        }
-        x[slideIndex2 - 1].style.display = "block";
-        x[slideIndex2 - 2].style.display = "block";
-        x[slideIndex2 - 3].style.display = "block";
     }
 </script>
 </body>
