@@ -33,10 +33,10 @@
     <div class="content">
         <div class="movies">
             <div class="images">
-                <button class="display-left" onclick="plusDivs(-1)">&#10094;</button>
+                <button class="display-left" style="margin-right: 5px;" onclick="plusDivs(-1)">&#10094;</button>
                 <img class="mainImage"
                      src="https://upload.wikimedia.org/wikipedia/en/b/be/The_Lord_of_the_Rings_-_The_Return_of_the_King_%282003%29.jpg">
-                <button class="display-right" onclick="plusDivs(1)">&#10095;</button>
+                <button class="display-right" style="margin-left: 5px;" onclick="plusDivs(1)">&#10095;</button>
             </div>
             <div class="upNext">
                 <h1>Up next</h1>
@@ -69,7 +69,7 @@
 
         <div class="whatToWatch">
             <h1>What To Watch</h1>
-            <input type="button" value="Browse our What to Watch page">
+            <input type="button" onclick="showMoviesList()" value="Browse our What to Watch page">
         </div>
 
         <div class="fromYourWatchList">

@@ -187,13 +187,11 @@
     height: 30%;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
 }
 
 .trailers > img {
     width: 20%;
     height: 20%;
-    margin: 2% 5% 2% 0px;
 }
 
 .trailers > input {

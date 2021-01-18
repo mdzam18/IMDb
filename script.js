@@ -23,13 +23,17 @@ async function updateImage2(url1, url2, url3, classname, buttonName1, buttonName
     x = document.getElementsByClassName(className2)[0];
     x.innerHTML = `
     <button class="display-left" onclick= ${buttonName1}>&#10094;</button>
-    <img class=${classname}
+    <img class=${classname} style = "margin: 2% 5% 2% 5px;"
          src=${url1}>
-    <img class=${classname}
+    <img class=${classname} style = "margin: 2% 5% 2% 0px;"
          src=${url2}>
-    <img class=${classname}
+    <img class=${classname} style = "margin: 2% 5px 2% 0px;"
          src=${url3}>
     <button class="display-right" onclick=${buttonName2}>&#10095;</button>`;
+}
+
+async function showMoviesList(){
+        
 }
 
 async function plusDivs2(n) {
