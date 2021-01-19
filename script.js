@@ -1,3 +1,27 @@
+window.addEventListener('hashchange', function() {
+    console.log('The hash has changed!')
+    locationHashChanged();
+}, false);
+
+function locationHashChanged() {
+    if (location.hash === "#WatchMovies") {
+        console.log("You're visiting a cool feature!");
+        UrlMapping["#WatchMovies"]();
+    }
+}
+
+window.onhashchange = locationHashChanged;
+
+var UrlMapping = {
+    "/": function () {
+    },
+    '#WatchMovies': function () {
+        for(let a = 0; a < res.length; a++){
+            getMovieInfo(res[a]);
+        }
+    }
+};
+
 async function updateImage(image) {
     curr = document.getElementsByClassName("images")[0];
     curr.innerHTML = `
@@ -32,9 +56,25 @@ async function updateImage2(url1, url2, url3, classname, buttonName1, buttonName
     <button class="display-right" onclick=${buttonName2}>&#10095;</button>`;
 }
 
-async function showMoviesList(){
-        
+async function showMoviesList(info) {
+    console.log(info)
+    let curr = document.getElementsByClassName("content")[0];
+    curr.innerHTML = `<div class="content">
+        <div class="movie-info">
+            <div class="upper-half">
+                <img class="image4"
+                     src=${info.image}>
+                <div class = "description">
+                    <h3>${info.title}</h3>
+                    <p>${info.plot}</p>
+                </div>
+            </div>
+            <div class="lower-half">
+                <p>${info.plot}</p>
+            </div>
+        </div>`;
 }
+
 
 async function plusDivs2(n) {
     k = k + n;
@@ -47,15 +87,15 @@ async function plusDivs2(n) {
         x[a].style.display = "none";
     }
     let a = k - 1;
-    if (a < 0){
+    if (a < 0) {
         a = res.length - 1;
     }
     let b = a - 1;
-    if (b < 0){
+    if (b < 0) {
         b = res.length - 1;
     }
     let c = b - 1;
-    if (c < 0){
+    if (c < 0) {
         c = res.length - 1;
     }
     updateImage2(urls[c], urls[b], urls[a], "trailerImage", "plusDivs2(-3)", "plusDivs2(3)", "trailers");
@@ -72,21 +112,21 @@ async function plusDivs3(n) {
         x[a].style.display = "none";
     }
     let a = s - 1;
-    if (a < 0){
+    if (a < 0) {
         a = res.length - 1;
     }
     let b = a - 1;
-    if (b < 0){
+    if (b < 0) {
         b = res.length - 1;
     }
     let c = b - 1;
-    if (c < 0){
+    if (c < 0) {
         c = res.length - 1;
     }
     updateImage2(urls[c], urls[b], urls[a], "images2", "plusDivs3(-3)", "plusDivs3(3)", "featuredTodayImages");
 }
 
-async function getImages(id) {
+async function getMovieInfo(id) {
     id = id.substring(7, id.length - 1);
     console.log(id);
     await fetch("https://imdb-internet-movie-database-unofficial.p.rapidapi.com/film/" + id, {
@@ -97,7 +137,31 @@ async function getImages(id) {
         }
     }).then(response => {
         let images = response.json();
-        console.log(images);
+        images.then(data => {
+            let result = {
+                image: data.poster,
+                title: data.title,
+                plot: data.plot,
+                year: data.year
+            };
+            showMoviesList(result);
+        });
+    })
+        .catch(err => {
+            console.error(err);
+        });
+}
+
+async function getImages(id) {
+    id = id.substring(7, id.length - 1);
+    await fetch("https://imdb-internet-movie-database-unofficial.p.rapidapi.com/film/" + id, {
+        "method": "GET",
+        "headers": {
+            "x-rapidapi-key": "9dd2fb5d00mshf542bbe7a288501p194b73jsnc0b091569688",
+            "x-rapidapi-host": "imdb-internet-movie-database-unofficial.p.rapidapi.com"
+        }
+    }).then(response => {
+        let images = response.json();
         images.then(data => {
             image = data.poster;
             if (i === 0 && isFirst) {
@@ -126,9 +190,9 @@ window.onload = async function () {
 }
 
 
-
 res = [];
 res = ["/title/tt2948372/", "/title/tt7126948/", "/title/tt6723592/", "/title/tt0087538/", "/title/tt0097647/", "/title/tt0091326/", "/title/tt0120338/"];
+
 /*
 11:"/title/tt0091326/"
 12:"/title/tt0451279/"

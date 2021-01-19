@@ -112,7 +112,7 @@
     width: 15%;
 }
 
-.logo > img {
+.logoImage{
     width: 100%;
     height: 40px;
 }
@@ -253,7 +253,7 @@
     margin-top: 0px;
 }
 
-.whatToWatch > input {
+.whatToWatch > a > input {
     background-color: goldenrod;
     margin: 0px auto;
     height: 45px;
