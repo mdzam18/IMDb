@@ -1,4 +1,4 @@
-window.addEventListener('hashchange', function() {
+window.addEventListener('hashchange', function () {
     console.log('The hash has changed!')
     locationHashChanged();
 }, false);
@@ -16,9 +16,7 @@ var UrlMapping = {
     "/": function () {
     },
     '#WatchMovies': function () {
-        for(let a = 0; a < res.length; a++){
-            getMovieInfo(res[a]);
-        }
+        showMoviesList();
     }
 };
 
@@ -56,23 +54,62 @@ async function updateImage2(url1, url2, url3, classname, buttonName1, buttonName
     <button class="display-right" onclick=${buttonName2}>&#10095;</button>`;
 }
 
-async function showMoviesList(info) {
-    console.log(info)
+async function showMoviesList() {
     let curr = document.getElementsByClassName("content")[0];
     curr.innerHTML = `<div class="content">
         <div class="movie-info">
             <div class="upper-half">
                 <img class="image4"
-                     src=${info.image}>
+                     src=${allInfo[0].image}>
                 <div class = "description">
-                    <h3>${info.title}</h3>
-                    <p>${info.plot}</p>
+                    <h3>${allInfo[0].title}</h3>
+                    <p>${allInfo[0].plot}</p>
                 </div>
             </div>
             <div class="lower-half">
-                <p>${info.plot}</p>
+                <p>${allInfo[0].plot}</p>
             </div>
-        </div>`;
+        </div>
+         <div class="movie-info">
+            <div class="upper-half">
+                <img class="image4"
+                     src=${allInfo[1].image}>
+                <div class = "description">
+                    <h3>${allInfo[1].title}</h3>
+                    <p>${allInfo[1].plot}</p>
+                </div>
+            </div>
+            <div class="lower-half">
+                <p>${allInfo[1].plot}</p>
+            </div>
+        </div>
+         <div class="movie-info">
+            <div class="upper-half">
+                <img class="image4"
+                     src=${allInfo[2].image}>
+                <div class = "description">
+                    <h3>${allInfo[2].title}</h3>
+                    <p>${allInfo[2].plot}</p>
+                </div>
+            </div>
+            <div class="lower-half">
+                <p>${allInfo[2].plot}</p>
+            </div>
+        </div>
+         <div class="movie-info">
+            <div class="upper-half">
+                <img class="image4"
+                     src=${allInfo[3].image}>
+                <div class = "description">
+                    <h3>${allInfo[3].title}</h3>
+                    <p>${allInfo[3].plot}</p>
+                </div>
+            </div>
+            <div class="lower-half">
+                <p>${allInfo[3].plot}</p>
+            </div>
+        </div>
+`;
 }
 
 
@@ -126,9 +163,16 @@ async function plusDivs3(n) {
     updateImage2(urls[c], urls[b], urls[a], "images2", "plusDivs3(-3)", "plusDivs3(3)", "featuredTodayImages");
 }
 
-async function getMovieInfo(id) {
+async function getImages(image) {
+    if (i === 0 && isFirst) {
+        updateImage(image);
+        isFirst = false;
+    }
+    urls.push(image);
+}
+
+async function getInfo(id) {
     id = id.substring(7, id.length - 1);
-    console.log(id);
     await fetch("https://imdb-internet-movie-database-unofficial.p.rapidapi.com/film/" + id, {
         "method": "GET",
         "headers": {
@@ -144,31 +188,8 @@ async function getMovieInfo(id) {
                 plot: data.plot,
                 year: data.year
             };
-            showMoviesList(result);
-        });
-    })
-        .catch(err => {
-            console.error(err);
-        });
-}
-
-async function getImages(id) {
-    id = id.substring(7, id.length - 1);
-    await fetch("https://imdb-internet-movie-database-unofficial.p.rapidapi.com/film/" + id, {
-        "method": "GET",
-        "headers": {
-            "x-rapidapi-key": "9dd2fb5d00mshf542bbe7a288501p194b73jsnc0b091569688",
-            "x-rapidapi-host": "imdb-internet-movie-database-unofficial.p.rapidapi.com"
-        }
-    }).then(response => {
-        let images = response.json();
-        images.then(data => {
-            image = data.poster;
-            if (i === 0 && isFirst) {
-                updateImage(image);
-                isFirst = false;
-            }
-            urls.push(image);
+            allInfo.push(result);
+            console.log("sasuke");
         });
     })
         .catch(err => {
@@ -180,18 +201,39 @@ let isFirst = true;
 let i = 0;
 let k = 0;
 let s = 0;
-let idsData = [];
 let urls = [];
+let allInfo = [];
+let res = ["/title/tt2948372/", "/title/tt7126948/", "/title/tt6723592/", "/title/tt0087538/", "/title/tt0097647/", "/title/tt0091326/", "/title/tt0120338/"];
 
-window.onload = async function () {
-    for (j = 0; j < res.length; j++) {
-        getImages(res[j]);
+
+window.onload = function () {
+    for(let j =0; j < res.length; j++) {
+        id = res[j];
+        id = id.substring(7, id.length - 1);
+        fetch("https://imdb-internet-movie-database-unofficial.p.rapidapi.com/film/" + id, {
+            "method": "GET",
+            "headers": {
+                "x-rapidapi-key": "9dd2fb5d00mshf542bbe7a288501p194b73jsnc0b091569688",
+                "x-rapidapi-host": "imdb-internet-movie-database-unofficial.p.rapidapi.com"
+            }
+        }).then(response => {
+            let images = response.json();
+            images.then(data => {
+                let result = {
+                    image: data.poster,
+                    title: data.title,
+                    plot: data.plot,
+                    year: data.year
+                };
+                allInfo.push(result);
+                console.log("sasuke");
+                getImages(result.image);
+            })
+        }).catch(err => {
+            console.error(err);
+        });
     }
 }
-
-
-res = [];
-res = ["/title/tt2948372/", "/title/tt7126948/", "/title/tt6723592/", "/title/tt0087538/", "/title/tt0097647/", "/title/tt0091326/", "/title/tt0120338/"];
 
 /*
 11:"/title/tt0091326/"
