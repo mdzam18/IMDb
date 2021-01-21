@@ -346,15 +346,16 @@ async function getInfo() {
             }
         }).then(response => {
             let images = response.json();
+            console.log(images);
             images.then(data => {
                 let result = {
                     image: data.poster,
                     title: data.title,
                     plot: data.plot,
-                    year: data.year
+                    year: data.year,
+                    cast: data.cast
                 };
                 allInfo.push(result);
-                console.log("sasuke");
                 getImages(result.image);
             })
         }).catch(err => {

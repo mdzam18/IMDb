@@ -355,6 +355,19 @@
     color: gray;
     text-align: center;
 }
+.content > table{
+    background-color: white;
+    width: 60%;
+    margin-top: 30px;
+}
+
+.movie{
+    display: flex;
+    flex-direction: column;
+    background-color: lightgrey;
+    width: 60%;
+    border: solid 2px white;
+}
 
 @media only screen and (max-width: 600px) {
 
