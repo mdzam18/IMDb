@@ -12,6 +12,9 @@ function locationHashChanged() {
         UrlMapping['#FanFavouriteMovies']();
     }else if(location.hash === '#PopularMovies') {
         UrlMapping['#PopularMovies']();
+    }else if(location.hash.substring(0, 14) === '#movieInfo?id=') {
+        console.log(location.hash.substring(14, location.hash.length -1));
+        UrlMapping['#movieInfo?id='](location.hash.substring(14, location.hash.length -1));
     }
 }
 
@@ -29,15 +32,56 @@ var UrlMapping = {
     },
     '#PopularMovies': function () {
         showPopularMoviesList();
+    },
+    '#movieInfo?id=':function (id) {
+        showMovieInfo(id);
     }
 };
 
+async function showMovieInfo(id){
+    await fetch("https://imdb-internet-movie-database-unofficial.p.rapidapi.com/film/" + id, {
+        "method": "GET",
+        "headers": {
+            "x-rapidapi-key": "9dd2fb5d00mshf542bbe7a288501p194b73jsnc0b091569688",
+            "x-rapidapi-host": "imdb-internet-movie-database-unofficial.p.rapidapi.com"
+        }
+    }).then(response => {
+        let images = response.json();
+        images.then(data => {
+            let result = {
+                image: data.poster,
+                title: data.title,
+                plot: data.plot,
+                year: data.year,
+                cast: data.cast
+            };
+            curr = document.getElementsByClassName("content")[0];
+            curr.innerHTML =`<div class="movie">
+            <div class="upper-half">
+                <img class="image4"
+                     src=${result.image}>
+                <div class="description">
+                    <h3>${result.title}</h3>
+                    <p>${result.plot}</p>
+                </div>
+            </div>
+            <div class="lower-half">
+                <p>${result.plot}</p>
+            </div>
+        </div>`;
+        })
+    }).catch(err => {
+        console.error(err);
+    });
+}
+
 async function updateImage(image) {
-    curr = document.getElementsByClassName("images")[0];
+    let curr = document.getElementsByClassName("images")[0];
+    let urlOfMovie = '#movieInfo?id=' + "tt2948372/";
     curr.innerHTML = `
                 <button class="display-left" onclick="plusDivs(-1)">&#10094;</button>
-                <img class="mainImage"
-                     src=${image}>
+                <a href="#movieInfo?id=tt2948372/"><img class="mainImage"
+                     src=${image}></a>
                 <button class="display-right" onclick="plusDivs(1)">&#10095;</button>
             `;
 }
@@ -338,7 +382,7 @@ async function getInfo() {
     for(let j =0; j < res.length; j++) {
         id = res[j];
         id = id.substring(7, id.length - 1);
-        fetch("https://imdb-internet-movie-database-unofficial.p.rapidapi.com/film/" + id, {
+        await fetch("https://imdb-internet-movie-database-unofficial.p.rapidapi.com/film/" + id, {
             "method": "GET",
             "headers": {
                 "x-rapidapi-key": "9dd2fb5d00mshf542bbe7a288501p194b73jsnc0b091569688",
