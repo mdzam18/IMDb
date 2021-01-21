@@ -5,18 +5,30 @@ window.addEventListener('hashchange', function () {
 
 function locationHashChanged() {
     if (location.hash === "#WatchMovies") {
-        console.log("You're visiting a cool feature!");
         UrlMapping["#WatchMovies"]();
+    } else if (location.hash === "#"){
+        UrlMapping["#"]();
+    } else if(location.hash === '#FanFavouriteMovies'){
+        UrlMapping['#FanFavouriteMovies']();
+    }else if(location.hash === '#PopularMovies') {
+        UrlMapping['#PopularMovies']();
     }
 }
 
 window.onhashchange = locationHashChanged;
 
 var UrlMapping = {
-    "/": function () {
+    "#": function () {
+        getInfo();
     },
     '#WatchMovies': function () {
         showMoviesList();
+    },
+    '#FanFavouriteMovies': function () {
+        showFanFavouriteMovieList();
+    },
+    '#PopularMovies': function () {
+        showPopularMoviesList();
     }
 };
 
@@ -68,6 +80,122 @@ async function showMoviesList() {
             </div>
             <div class="lower-half">
                 <p>${allInfo[0].plot}</p>
+            </div>
+        </div>
+         <div class="movie-info">
+            <div class="upper-half">
+                <img class="image4"
+                     src=${allInfo[1].image}>
+                <div class = "description">
+                    <h3>${allInfo[1].title}</h3>
+                    <p>${allInfo[1].plot}</p>
+                </div>
+            </div>
+            <div class="lower-half">
+                <p>${allInfo[1].plot}</p>
+            </div>
+        </div>
+         <div class="movie-info">
+            <div class="upper-half">
+                <img class="image4"
+                     src=${allInfo[2].image}>
+                <div class = "description">
+                    <h3>${allInfo[2].title}</h3>
+                    <p>${allInfo[2].plot}</p>
+                </div>
+            </div>
+            <div class="lower-half">
+                <p>${allInfo[2].plot}</p>
+            </div>
+        </div>
+         <div class="movie-info">
+            <div class="upper-half">
+                <img class="image4"
+                     src=${allInfo[3].image}>
+                <div class = "description">
+                    <h3>${allInfo[3].title}</h3>
+                    <p>${allInfo[3].plot}</p>
+                </div>
+            </div>
+            <div class="lower-half">
+                <p>${allInfo[3].plot}</p>
+            </div>
+        </div>
+`;
+}
+
+async function  showFanFavouriteMovieList(){
+    let curr = document.getElementsByClassName("content")[0];
+    curr.innerHTML = `<div class="content">
+        <div class="movie-info">
+            <div class="upper-half">
+                <img class="image4"
+                     src=${allInfo[2].image}>
+                <div class = "description">
+                    <h3>${allInfo[2].title}</h3>
+                    <p>${allInfo[2].plot}</p>
+                </div>
+            </div>
+            <div class="lower-half">
+                <p>${allInfo[2].plot}</p>
+            </div>
+        </div>
+         <div class="movie-info">
+            <div class="upper-half">
+                <img class="image4"
+                     src=${allInfo[1].image}>
+                <div class = "description">
+                    <h3>${allInfo[1].title}</h3>
+                    <p>${allInfo[1].plot}</p>
+                </div>
+            </div>
+            <div class="lower-half">
+                <p>${allInfo[1].plot}</p>
+            </div>
+        </div>
+         <div class="movie-info">
+            <div class="upper-half">
+                <img class="image4"
+                     src=${allInfo[2].image}>
+                <div class = "description">
+                    <h3>${allInfo[2].title}</h3>
+                    <p>${allInfo[2].plot}</p>
+                </div>
+            </div>
+            <div class="lower-half">
+                <p>${allInfo[2].plot}</p>
+            </div>
+        </div>
+         <div class="movie-info">
+            <div class="upper-half">
+                <img class="image4"
+                     src=${allInfo[3].image}>
+                <div class = "description">
+                    <h3>${allInfo[3].title}</h3>
+                    <p>${allInfo[3].plot}</p>
+                </div>
+            </div>
+            <div class="lower-half">
+                <p>${allInfo[3].plot}</p>
+            </div>
+        </div>
+`;
+}
+
+async function showPopularMoviesList() {
+    let curr = document.getElementsByClassName("content")[0];
+    curr.innerHTML = `<div class="content">
+        <div class="movie-info">
+            <div class="upper-half">
+                <img class="image4"
+                     src=${allInfo[1].image}>
+                <div class = "description">
+                    <h3>${allInfo[1].title}</h3>
+                    <p>${allInfo[1].plot}</p>
+                </div>
+            </div>
+            <div class="lower-half">
+                <p>${allInfo[1].plot}</p>
             </div>
         </div>
          <div class="movie-info">

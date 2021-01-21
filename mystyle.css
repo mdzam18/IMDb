@@ -279,7 +279,7 @@
     flex-direction: row;
 }
 
-.fanFavorites2 > input {
+.fanFavorites2 > a > input {
     padding: 0;
     border: none;
     background: none;
@@ -316,7 +316,7 @@
     flex-direction: row;
 }
 
-.buttons > input {
+.buttons > a > input {
     width: 130px;
     height: 30px;
     background: none;
@@ -435,7 +435,7 @@
         text-align: center;
     }
 
-    .buttons > input {
+    .buttons > a > input {
         width: 150px;
         height: 40px;
     }
