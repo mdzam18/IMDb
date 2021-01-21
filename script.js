@@ -163,50 +163,50 @@ async function plusDivs3(n) {
     updateImage2(urls[c], urls[b], urls[a], "images2", "plusDivs3(-3)", "plusDivs3(3)", "featuredTodayImages");
 }
 
+async function plusDivs4(n) {
+    h = h + n;
+    if (h < 0) {
+        h = res.length - 1;
+    }
+    h = h % res.length;
+    x = document.getElementsByClassName("images3");
+    for (let a = 0; a < 3; a++) {
+        x[a].style.display = "none";
+    }
+    let a = h - 1;
+    if (a < 0) {
+        a = res.length - 1;
+    }
+    let b = a - 1;
+    if (b < 0) {
+        b = res.length - 1;
+    }
+    let c = b - 1;
+    if (c < 0) {
+        c = res.length - 1;
+    }
+    updateImage2(urls[c], urls[b], urls[a], "images3", "plusDivs4(-3)", "plusDivs4(3)", "trailers2");
+}
+
 async function getImages(image) {
-    if (i === 0 && isFirst) {
+    urls.push(image);
+    if (isFirst) {
         updateImage(image);
         isFirst = false;
     }
-    urls.push(image);
+    number++;
+    if(number == 3){
+        updateImage2(urls[0], urls[1], urls[2], "trailerImage", "plusDivs2(-3)", "plusDivs2(3)", "trailers");
+    }
+    if(number == 6){
+        updateImage2(urls[3], urls[4], urls[5], "images2", "plusDivs3(-3)", "plusDivs3(3)", "featuredTodayImages");
+    }
+    if(number == 6){
+        updateImage2(urls[3], urls[4], urls[5], "images3", "plusDivs4(-3)", "plusDivs4(3)", "trailers2");
+    }
 }
 
-async function getInfo(id) {
-    id = id.substring(7, id.length - 1);
-    await fetch("https://imdb-internet-movie-database-unofficial.p.rapidapi.com/film/" + id, {
-        "method": "GET",
-        "headers": {
-            "x-rapidapi-key": "9dd2fb5d00mshf542bbe7a288501p194b73jsnc0b091569688",
-            "x-rapidapi-host": "imdb-internet-movie-database-unofficial.p.rapidapi.com"
-        }
-    }).then(response => {
-        let images = response.json();
-        images.then(data => {
-            let result = {
-                image: data.poster,
-                title: data.title,
-                plot: data.plot,
-                year: data.year
-            };
-            allInfo.push(result);
-            console.log("sasuke");
-        });
-    })
-        .catch(err => {
-            console.error(err);
-        });
-}
-
-let isFirst = true;
-let i = 0;
-let k = 0;
-let s = 0;
-let urls = [];
-let allInfo = [];
-let res = ["/title/tt2948372/", "/title/tt7126948/", "/title/tt6723592/", "/title/tt0087538/", "/title/tt0097647/", "/title/tt0091326/", "/title/tt0120338/"];
-
-
-window.onload = function () {
+async function getInfo() {
     for(let j =0; j < res.length; j++) {
         id = res[j];
         id = id.substring(7, id.length - 1);
@@ -233,6 +233,21 @@ window.onload = function () {
             console.error(err);
         });
     }
+}
+
+let isFirst = true;
+let number = 0;
+let i = 0;
+let k = 0;
+let s = 0;
+let h = 0;
+let urls = [];
+let allInfo = [];
+let res = ["/title/tt2948372/", "/title/tt7126948/", "/title/tt6723592/", "/title/tt0087538/", "/title/tt0097647/", "/title/tt0091326/", "/title/tt0120338/"];
+
+
+window.onload = function () {
+    getInfo();
 }
 
 /*
