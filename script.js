@@ -13,8 +13,8 @@ function locationHashChanged() {
     }else if(location.hash === '#PopularMovies') {
         UrlMapping['#PopularMovies']();
     }else if(location.hash.substring(0, 14) === '#movieInfo?id=') {
-        console.log(location.hash.substring(14, location.hash.length -1));
-        UrlMapping['#movieInfo?id='](location.hash.substring(14, location.hash.length -1));
+        console.log(location.hash.substring(14, location.hash.length));
+        UrlMapping['#movieInfo?id='](location.hash.substring(14, location.hash.length));
     }
 }
 
@@ -55,7 +55,7 @@ async function showMovieInfo(id){
                 year: data.year,
                 cast: data.cast
             };
-            curr = document.getElementsByClassName("content")[0];
+            let curr = document.getElementsByClassName("content")[0];
             curr.innerHTML =`<div class="movie">
             <div class="upper-half">
                 <img class="image4"
@@ -75,12 +75,14 @@ async function showMovieInfo(id){
     });
 }
 
-async function updateImage(image) {
+async function updateImage(info) {
+    let image = info.image;
     let curr = document.getElementsByClassName("images")[0];
-    let urlOfMovie = '#movieInfo?id=' + "tt2948372/";
+    let urlOfMovie = '#movieInfo?id=' + info.id;
+    console.log(urlOfMovie);
     curr.innerHTML = `
                 <button class="display-left" onclick="plusDivs(-1)">&#10094;</button>
-                <a href="#movieInfo?id=tt2948372/"><img class="mainImage"
+                <a href=${urlOfMovie}><img class="mainImage"
                      src=${image}></a>
                 <button class="display-right" onclick="plusDivs(1)">&#10095;</button>
             `;
@@ -94,7 +96,7 @@ async function plusDivs(n) {
     i = i % res.length;
     x = document.getElementsByClassName("mainImage")[0];
     x.style.display = "none";
-    updateImage(urls[i]);
+    updateImage(allInfo[i]);
 }
 
 async function updateImage2(url1, url2, url3, classname, buttonName1, buttonName2, className2) {
@@ -363,7 +365,7 @@ async function plusDivs4(n) {
 async function getImages(image) {
     urls.push(image);
     if (isFirst) {
-        updateImage(image);
+        updateImage(allInfo[0]);
         isFirst = false;
     }
     number++;
@@ -380,8 +382,11 @@ async function getImages(image) {
 
 async function getInfo() {
     for(let j =0; j < res.length; j++) {
-        id = res[j];
+        let id = res[j];
         id = id.substring(7, id.length - 1);
+        console.log("sasuke ");
+        console.log(id);
+        console.log("naruto");
         await fetch("https://imdb-internet-movie-database-unofficial.p.rapidapi.com/film/" + id, {
             "method": "GET",
             "headers": {
@@ -390,15 +395,20 @@ async function getInfo() {
             }
         }).then(response => {
             let images = response.json();
-            console.log(images);
+            id = res[j];
+            id = id.substring(7, id.length - 1);
             images.then(data => {
                 let result = {
                     image: data.poster,
                     title: data.title,
                     plot: data.plot,
                     year: data.year,
-                    cast: data.cast
+                    cast: data.cast,
+                    id: id
                 };
+                console.log("itachi ");
+                console.log(id);
+                console.log("minato");
                 allInfo.push(result);
                 getImages(result.image);
             })
