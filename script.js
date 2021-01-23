@@ -6,13 +6,13 @@ window.addEventListener('hashchange', function () {
 function locationHashChanged() {
     if (location.hash === "#WatchMovies") {
         UrlMapping["#WatchMovies"]();
-    } else if (location.hash === "#"){
+    } else if (location.hash === "#") {
         UrlMapping["#"]();
-    } else if(location.hash === '#FanFavouriteMovies'){
+    } else if (location.hash === '#FanFavouriteMovies') {
         UrlMapping['#FanFavouriteMovies']();
-    }else if(location.hash === '#PopularMovies') {
+    } else if (location.hash === '#PopularMovies') {
         UrlMapping['#PopularMovies']();
-    }else if(location.hash.substring(0, 14) === '#movieInfo?id=') {
+    } else if (location.hash.substring(0, 14) === '#movieInfo?id=') {
         console.log(location.hash.substring(14, location.hash.length));
         UrlMapping['#movieInfo?id='](location.hash.substring(14, location.hash.length));
     }
@@ -33,12 +33,12 @@ var UrlMapping = {
     '#PopularMovies': function () {
         showPopularMoviesList();
     },
-    '#movieInfo?id=':function (id) {
+    '#movieInfo?id=': function (id) {
         showMovieInfo(id);
     }
 };
 
-async function showMovieInfo(id){
+async function showMovieInfo(id) {
     await fetch("https://imdb-internet-movie-database-unofficial.p.rapidapi.com/film/" + id, {
         "method": "GET",
         "headers": {
@@ -56,7 +56,7 @@ async function showMovieInfo(id){
                 cast: data.cast
             };
             let curr = document.getElementsByClassName("content")[0];
-            curr.innerHTML =`<div class="movie">
+            curr.innerHTML = `<div class="movie">
             <div class="upper-half">
                 <img class="image4"
                      src=${result.image}>
@@ -99,16 +99,22 @@ async function plusDivs(n) {
     updateImage(allInfo[i]);
 }
 
-async function updateImage2(url1, url2, url3, classname, buttonName1, buttonName2, className2) {
-    x = document.getElementsByClassName(className2)[0];
+async function updateImage2(info1, info2, info3, classname, buttonName1, buttonName2, className2) {
+    let url1 = info1.image;
+    let url2 = info2.image;
+    let url3 = info3.image;
+    let urlOfMovie1 = '#movieInfo?id=' + info1.id;
+    let urlOfMovie2 = '#movieInfo?id=' + info2.id;
+    let urlOfMovie3 = '#movieInfo?id=' + info3.id;
+    let x = document.getElementsByClassName(className2)[0];
     x.innerHTML = `
     <button class="display-left" onclick= ${buttonName1}>&#10094;</button>
-    <img class=${classname} style = "margin: 2% 5% 2% 5px;"
-         src=${url1}>
-    <img class=${classname} style = "margin: 2% 5% 2% 0px;"
-         src=${url2}>
-    <img class=${classname} style = "margin: 2% 5px 2% 0px;"
-         src=${url3}>
+    <a href=${urlOfMovie1} style = "margin: 2% 5% 2% 5px"><img class=${classname}
+         src=${url1}> </a>
+     <a href=${urlOfMovie2} style = "margin: 2% 5% 2% 5px"><img class=${classname}
+         src=${url2}> </a>
+     <a href=${urlOfMovie3} style = "margin: 2% 5% 2% 5px"><img class=${classname}
+         src=${url3}> </a>
     <button class="display-right" onclick=${buttonName2}>&#10095;</button>`;
 }
 
@@ -170,7 +176,7 @@ async function showMoviesList() {
 `;
 }
 
-async function  showFanFavouriteMovieList(){
+async function showFanFavouriteMovieList() {
     let curr = document.getElementsByClassName("content")[0];
     curr.innerHTML = `<div class="content">
         <div class="movie-info">
@@ -309,7 +315,7 @@ async function plusDivs2(n) {
     if (c < 0) {
         c = res.length - 1;
     }
-    updateImage2(urls[c], urls[b], urls[a], "trailerImage", "plusDivs2(-3)", "plusDivs2(3)", "trailers");
+    updateImage2(allInfo[c], allInfo[b], allInfo[a], "trailerImage", "plusDivs2(-3)", "plusDivs2(3)", "trailers");
 }
 
 async function plusDivs3(n) {
@@ -334,7 +340,7 @@ async function plusDivs3(n) {
     if (c < 0) {
         c = res.length - 1;
     }
-    updateImage2(urls[c], urls[b], urls[a], "images2", "plusDivs3(-3)", "plusDivs3(3)", "featuredTodayImages");
+    updateImage2(allInfo[c], allInfo[b], allInfo[a], "images2", "plusDivs3(-3)", "plusDivs3(3)", "featuredTodayImages");
 }
 
 async function plusDivs4(n) {
@@ -359,7 +365,7 @@ async function plusDivs4(n) {
     if (c < 0) {
         c = res.length - 1;
     }
-    updateImage2(urls[c], urls[b], urls[a], "images3", "plusDivs4(-3)", "plusDivs4(3)", "trailers2");
+    updateImage2(allInfo[c], allInfo[b], allInfo[a], "images3", "plusDivs4(-3)", "plusDivs4(3)", "trailers2");
 }
 
 async function getImages(image) {
@@ -369,19 +375,19 @@ async function getImages(image) {
         isFirst = false;
     }
     number++;
-    if(number == 3){
-        updateImage2(urls[0], urls[1], urls[2], "trailerImage", "plusDivs2(-3)", "plusDivs2(3)", "trailers");
+    if (number == 3) {
+        updateImage2(allInfo[0], allInfo[1], allInfo[2], "trailerImage", "plusDivs2(-3)", "plusDivs2(3)", "trailers");
     }
-    if(number == 6){
-        updateImage2(urls[3], urls[4], urls[5], "images2", "plusDivs3(-3)", "plusDivs3(3)", "featuredTodayImages");
+    if (number == 6) {
+        updateImage2(allInfo[3], allInfo[4], allInfo[5], "images2", "plusDivs3(-3)", "plusDivs3(3)", "featuredTodayImages");
     }
-    if(number == 6){
-        updateImage2(urls[3], urls[4], urls[5], "images3", "plusDivs4(-3)", "plusDivs4(3)", "trailers2");
+    if (number == 6) {
+        updateImage2(allInfo[3], allInfo[4], allInfo[5], "images3", "plusDivs4(-3)", "plusDivs4(3)", "trailers2");
     }
 }
 
 async function getInfo() {
-    for(let j =0; j < res.length; j++) {
+    for (let j = 0; j < res.length; j++) {
         let id = res[j];
         id = id.substring(7, id.length - 1);
         console.log("sasuke ");

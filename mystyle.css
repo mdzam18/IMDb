@@ -189,9 +189,14 @@
     flex-direction: row;
 }
 
-.trailers > img {
+.trailers > a{
     width: 20%;
     height: 20%;
+}
+
+.trailers > a > img {
+    width: 100%;
+    height: 100%;
 }
 
 .trailers > input {
@@ -206,10 +211,15 @@
     justify-content: space-between;
 }
 
-.trailers2 > img {
+.trailers2 > a{
     width: 20%;
     height: 20%;
     margin: 2% 5% 2% 0px;
+}
+
+.trailers2 > a > img {
+    width: 100%;
+    height: 100%;
 }
 
 .trailers2 > input {
@@ -236,9 +246,14 @@
     margin: 0px auto;
 }
 
-.featuredTodayImages > img {
+.featuredTodayImages > a{
     width: 30%;
     height: 30%;
+}
+
+.featuredTodayImages > a > img {
+    width: 100%;
+    height: 100%;
 }
 
 .whatToWatch {
@@ -459,7 +474,7 @@
         flex-direction: column;
     }
 
-    .trailers2 > img {
+    .trailers2 > a > img {
         width: 80%;
         height: 40%;
         margin: 5% 10%;
