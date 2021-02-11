@@ -24,7 +24,7 @@
 
 .trailers > button {
     height: 30px;
-    margin-top: 12%;
+    margin-top: 75px;
 }
 
 .featuredTodayImages > button {
@@ -34,7 +34,7 @@
 
 .trailers2 > button {
     height: 30px;
-    margin-top: 14%;
+    margin-top: 135px;
 }
 
 .header {
@@ -137,7 +137,13 @@
     height: 40px;
 }
 
+.fanFavorites > a:hover {
+    color: darkgoldenrod;
+}
+
 .search {
+    display: flex;
+    flex-direction: row;
     width: 75%;
     height: 40px;
     margin-left: 5%;
@@ -199,19 +205,21 @@
 .upNext {
     margin-left: 10%;
     width: 50%;
-    height: 30%;
+    height: 300px;
 }
 
 .trailers {
     width: 100%;
-    height: 30%;
+    height: 200px;
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
 }
 
 .trailers > a{
-    width: 20%;
-    height: 20%;
+    width: 30%;
+    height: 90%;
+    padding: 0px;
 }
 
 .trailers > a > img {
@@ -226,15 +234,17 @@
 }
 
 .trailers2 {
+    margin: auto;
+    width: 80%;
+    height: 300px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
 
 .trailers2 > a{
-    width: 20%;
-    height: 20%;
-    margin: 2% 5% 2% 0px;
+    width: 30%;
+    height: 90%;
 }
 
 .trailers2 > a > img {
@@ -279,8 +289,9 @@
 .whatToWatch {
     margin-top: 50px;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     margin-bottom: 20px;
+    justify-content: center;
 }
 
 .whatToWatch > h1 {
@@ -290,7 +301,6 @@
 
 .whatToWatch > a > input {
     background-color: goldenrod;
-    margin: 0px auto;
     height: 45px;
     padding: 0px 20px;
     border-radius: 10%;
@@ -333,9 +343,14 @@
     width: 40%;
 }
 
-.images > a > img {
+.images > a{
     width: 90%;
     height: 400px;
+}
+
+.images >a > img{
+    width: 100%;
+    height: 100%;
 }
 
 .moreToWatch > h1 {

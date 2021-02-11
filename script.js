@@ -109,11 +109,11 @@ async function updateImage2(info1, info2, info3, classname, buttonName1, buttonN
     let x = document.getElementsByClassName(className2)[0];
     x.innerHTML = `
     <button class="display-left" onclick= ${buttonName1}>&#10094;</button>
-    <a href=${urlOfMovie1} style = "margin: 2% 5% 2% 5px"><img class=${classname}
+    <a href=${urlOfMovie1}><img class=${classname}
          src=${url1}> </a>
-     <a href=${urlOfMovie2} style = "margin: 2% 5% 2% 5px"><img class=${classname}
+     <a href=${urlOfMovie2}><img class=${classname}
          src=${url2}> </a>
-     <a href=${urlOfMovie3} style = "margin: 2% 5% 2% 5px"><img class=${classname}
+     <a href=${urlOfMovie3}><img class=${classname}
          src=${url3}> </a>
     <button class="display-right" onclick=${buttonName2}>&#10095;</button>`;
 }
@@ -439,7 +439,7 @@ async function getInfo() {
 let isFirst = true;
 let number = 0;
 let i = 0;
-let k = 0;
+let k = 3;
 let s = 0;
 let h = 0;
 let urls = [];
@@ -447,7 +447,8 @@ let allInfo = [];
 let res = ["/title/tt2948372/", "/title/tt7126948/", "/title/tt6723592/", "/title/tt0087538/", "/title/tt0097647/", "/title/tt0091326/", "/title/tt0120338/"];
 
 function searchMovie(){
-    fetch("https://imdb-internet-movie-database-unofficial.p.rapidapi.com/search/inception", {
+    let movieName = document.getElementById("search").value
+    fetch("https://imdb-internet-movie-database-unofficial.p.rapidapi.com/search/" + movieName, {
         "method": "GET",
         "headers": {
             "x-rapidapi-key": "9dd2fb5d00mshf542bbe7a288501p194b73jsnc0b091569688",
@@ -458,8 +459,7 @@ function searchMovie(){
             let info = response.json();
             info.then(data => {
                let id = data.titles[0].id;
-               //let urlOfMovie = '#movieInfo?id=' + id;
-               showMovieInfo(id);
+                window.location.hash = '#movieInfo?id=' + id;
             })
         })
         .catch(err => {
@@ -468,8 +468,7 @@ function searchMovie(){
 }
 
 window.onload = function () {
-   // getInfo();
-    searchMovie();
+    getInfo();
 }
 
 /*
