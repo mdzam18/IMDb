@@ -446,9 +446,30 @@ let urls = [];
 let allInfo = [];
 let res = ["/title/tt2948372/", "/title/tt7126948/", "/title/tt6723592/", "/title/tt0087538/", "/title/tt0097647/", "/title/tt0091326/", "/title/tt0120338/"];
 
+function searchMovie(){
+    fetch("https://imdb-internet-movie-database-unofficial.p.rapidapi.com/search/inception", {
+        "method": "GET",
+        "headers": {
+            "x-rapidapi-key": "9dd2fb5d00mshf542bbe7a288501p194b73jsnc0b091569688",
+            "x-rapidapi-host": "imdb-internet-movie-database-unofficial.p.rapidapi.com"
+        }
+    })
+        .then(response => {
+            let info = response.json();
+            info.then(data => {
+               let id = data.titles[0].id;
+               //let urlOfMovie = '#movieInfo?id=' + id;
+               showMovieInfo(id);
+            })
+        })
+        .catch(err => {
+            console.error(err);
+        });
+}
 
 window.onload = function () {
-    getInfo();
+   // getInfo();
+    searchMovie();
 }
 
 /*
