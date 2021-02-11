@@ -431,10 +431,25 @@
 
     .content {
         width: 100%;
+        margin: 0px 0px;
     }
 
     .movie-info {
         width: 100%;
+        margin-left: 0px;
+        height: 400px;
+    }
+
+    .image5{
+        width: 40%;
+    }
+
+    .description{
+        width: 60%;
+    }
+
+    .upper-half > a {
+        width: 40%;
     }
 
     .movies {

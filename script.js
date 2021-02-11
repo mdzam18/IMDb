@@ -56,7 +56,7 @@ async function showMovieInfo(id) {
                 cast: data.cast
             };
             let curr = document.getElementsByClassName("content")[0];
-            curr.innerHTML = `<div class="movie">
+            curr.innerHTML = `<div class="movie-info">
             <div class="upper-half">
                 <img class="image5"
                      src=${result.image}>
@@ -127,7 +127,7 @@ async function showMoviesList() {
     curr.innerHTML = `
         <div class="movie-info">
             <div class="upper-half">
-                <a style="width: 25%; height: 90%;" href=${urlOfMovie1}><img style="width: 100%; height: 100%;" class="image4"
+                <a href=${urlOfMovie1}><img style="width: 100%; height: 100%;" class="image4"
                      src=${allInfo[0].image}></a>
                 <div class = "description">
                     <h3>${allInfo[0].title}</h3>
@@ -140,7 +140,7 @@ async function showMoviesList() {
         </div>
          <div class="movie-info">
             <div class="upper-half">
-                <a style="width: 25%; height: 90%;" href=${urlOfMovie2}><img style="width: 100%; height: 100%;" class="image4"
+                <a href=${urlOfMovie2}><img style="width: 100%; height: 100%;" class="image4"
                      src=${allInfo[1].image}></a>
                 <div class = "description">
                     <h3>${allInfo[1].title}</h3>
@@ -153,7 +153,7 @@ async function showMoviesList() {
         </div>
          <div class="movie-info">
             <div class="upper-half">
-                <a style="width: 25%; height: 90%;" href=${urlOfMovie3}><img style="width: 100%; height: 100%;" class="image4"
+                <a href=${urlOfMovie3}><img style="width: 100%; height: 100%;" class="image4"
                      src=${allInfo[2].image}></a>
                 <div class = "description">
                     <h3>${allInfo[2].title}</h3>
@@ -166,7 +166,7 @@ async function showMoviesList() {
         </div>
          <div class="movie-info">
             <div class="upper-half">
-                <a style="width: 25%; height: 90%;" href=${urlOfMovie4}><img style="width: 100%; height: 100%;" class="image4"
+                <a href=${urlOfMovie4}><img style="width: 100%; height: 100%;" class="image4"
                      src=${allInfo[3].image}></a>
                 <div class = "description">
                     <h3>${allInfo[3].title}</h3>
