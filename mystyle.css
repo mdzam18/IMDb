@@ -242,6 +242,9 @@
     justify-content: space-between;
 }
 
+.movies{
+    height: 400px;
+}
 .trailers2 > a{
     width: 30%;
     height: 90%;
@@ -435,6 +438,7 @@
     }
 
     .movies {
+        height: 800px;
         display: flex;
         flex-direction: column;
     }
@@ -445,16 +449,16 @@
 
     .images {
         width: 100%;
-        margin: 0px;
+        height: 100%;
     }
 
     .images > a > img {
         width: 100%;
-        height: 600px;
     }
 
     .upNext {
         margin-left: 0px;
+        width: 100%;
     }
 
     .whatToWatch {
@@ -492,6 +496,7 @@
 
     .featuredTodayImages {
         justify-content: space-between;
+        width: 100%;
     }
 
 
@@ -507,12 +512,17 @@
     .trailers2 {
         display: flex;
         flex-direction: column;
+        height: 1200px;
+        justify-content: space-between;
     }
 
-    .trailers2 > a > img {
-        width: 80%;
-        height: 40%;
-        margin: 5% 10%;
+    .trailers2 > a {
+        height: 30%;
+        width: 100%;
+    }
+
+    .trailers2 > button{
+        display: none;
     }
 
     .fanFavorites2 {
