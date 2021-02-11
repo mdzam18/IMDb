@@ -58,7 +58,7 @@ async function showMovieInfo(id) {
             let curr = document.getElementsByClassName("content")[0];
             curr.innerHTML = `<div class="movie">
             <div class="upper-half">
-                <img class="image4"
+                <img class="image5"
                      src=${result.image}>
                 <div class="description">
                     <h3>${result.title}</h3>
@@ -124,10 +124,10 @@ async function showMoviesList() {
     let urlOfMovie2 = '#movieInfo?id=' + allInfo[1].id;
     let urlOfMovie3 = '#movieInfo?id=' + allInfo[2].id;
     let urlOfMovie4 = '#movieInfo?id=' + allInfo[3].id;
-    curr.innerHTML = `<div class="content">
+    curr.innerHTML = `
         <div class="movie-info">
             <div class="upper-half">
-                <a style="width: 20%; height: 20%;" href=${urlOfMovie1}><img style="width: 100%; height: 100%;" class="image4"
+                <a style="width: 25%; height: 90%;" href=${urlOfMovie1}><img style="width: 100%; height: 100%;" class="image4"
                      src=${allInfo[0].image}></a>
                 <div class = "description">
                     <h3>${allInfo[0].title}</h3>
@@ -140,7 +140,7 @@ async function showMoviesList() {
         </div>
          <div class="movie-info">
             <div class="upper-half">
-                <a style="width: 20%; height: 20%;" href=${urlOfMovie2}><img style="width: 100%; height: 100%;" class="image4"
+                <a style="width: 25%; height: 90%;" href=${urlOfMovie2}><img style="width: 100%; height: 100%;" class="image4"
                      src=${allInfo[1].image}></a>
                 <div class = "description">
                     <h3>${allInfo[1].title}</h3>
@@ -153,7 +153,7 @@ async function showMoviesList() {
         </div>
          <div class="movie-info">
             <div class="upper-half">
-                <a style="width: 20%; height: 20%;" href=${urlOfMovie3}><img style="width: 100%; height: 100%;" class="image4"
+                <a style="width: 25%; height: 90%;" href=${urlOfMovie3}><img style="width: 100%; height: 100%;" class="image4"
                      src=${allInfo[2].image}></a>
                 <div class = "description">
                     <h3>${allInfo[2].title}</h3>
@@ -166,7 +166,7 @@ async function showMoviesList() {
         </div>
          <div class="movie-info">
             <div class="upper-half">
-                <a style="width: 20%; height: 20%;" href=${urlOfMovie4}><img style="width: 100%; height: 100%;" class="image4"
+                <a style="width: 25%; height: 90%;" href=${urlOfMovie4}><img style="width: 100%; height: 100%;" class="image4"
                      src=${allInfo[3].image}></a>
                 <div class = "description">
                     <h3>${allInfo[3].title}</h3>
@@ -182,11 +182,15 @@ async function showMoviesList() {
 
 async function showFanFavouriteMovieList() {
     let curr = document.getElementsByClassName("content")[0];
-    curr.innerHTML = `<div class="content">
+    let urlOfMovie1 = '#movieInfo?id=' + allInfo[2].id;
+    let urlOfMovie2 = '#movieInfo?id=' + allInfo[1].id;
+    let urlOfMovie3 = '#movieInfo?id=' + allInfo[2].id;
+    let urlOfMovie4 = '#movieInfo?id=' + allInfo[3].id;
+    curr.innerHTML = `
         <div class="movie-info">
             <div class="upper-half">
-                <img class="image4"
-                     src=${allInfo[2].image}>
+                <a href = ${urlOfMovie1}><img class="image4"
+                     src=${allInfo[2].image}> </a>
                 <div class = "description">
                     <h3>${allInfo[2].title}</h3>
                     <p>${allInfo[2].plot}</p>
@@ -198,8 +202,8 @@ async function showFanFavouriteMovieList() {
         </div>
          <div class="movie-info">
             <div class="upper-half">
-                <img class="image4"
-                     src=${allInfo[1].image}>
+                <a href = ${urlOfMovie2}><img class="image4"
+                     src=${allInfo[1].image}> </a>
                 <div class = "description">
                     <h3>${allInfo[1].title}</h3>
                     <p>${allInfo[1].plot}</p>
@@ -211,8 +215,8 @@ async function showFanFavouriteMovieList() {
         </div>
          <div class="movie-info">
             <div class="upper-half">
-                <img class="image4"
-                     src=${allInfo[2].image}>
+                <a href = ${urlOfMovie3}><img class="image4"
+                     src=${allInfo[2].image}></a>
                 <div class = "description">
                     <h3>${allInfo[2].title}</h3>
                     <p>${allInfo[2].plot}</p>
@@ -224,8 +228,8 @@ async function showFanFavouriteMovieList() {
         </div>
          <div class="movie-info">
             <div class="upper-half">
-                <img class="image4"
-                     src=${allInfo[3].image}>
+                <a href = ${urlOfMovie4}><img class="image4"
+                     src=${allInfo[3].image}></a>
                 <div class = "description">
                     <h3>${allInfo[3].title}</h3>
                     <p>${allInfo[3].plot}</p>
@@ -239,12 +243,16 @@ async function showFanFavouriteMovieList() {
 }
 
 async function showPopularMoviesList() {
+    let urlOfMovie1 = '#movieInfo?id=' + allInfo[2].id;
+    let urlOfMovie2 = '#movieInfo?id=' + allInfo[1].id;
+    let urlOfMovie3 = '#movieInfo?id=' + allInfo[2].id;
+    let urlOfMovie4 = '#movieInfo?id=' + allInfo[3].id;
     let curr = document.getElementsByClassName("content")[0];
-    curr.innerHTML = `<div class="content">
+    curr.innerHTML = `
         <div class="movie-info">
             <div class="upper-half">
-                <img class="image4"
-                     src=${allInfo[1].image}>
+                <a href = ${urlOfMovie1}><img class="image4"
+                     src=${allInfo[1].image}> </a>
                 <div class = "description">
                     <h3>${allInfo[1].title}</h3>
                     <p>${allInfo[1].plot}</p>
@@ -256,8 +264,8 @@ async function showPopularMoviesList() {
         </div>
          <div class="movie-info">
             <div class="upper-half">
-                <img class="image4"
-                     src=${allInfo[1].image}>
+                 <a href = ${urlOfMovie2}> <img class="image4"
+                     src=${allInfo[1].image}> </a>
                 <div class = "description">
                     <h3>${allInfo[1].title}</h3>
                     <p>${allInfo[1].plot}</p>
@@ -269,8 +277,8 @@ async function showPopularMoviesList() {
         </div>
          <div class="movie-info">
             <div class="upper-half">
-                <img class="image4"
-                     src=${allInfo[2].image}>
+                 <a href = ${urlOfMovie3}> <img class="image4"
+                     src=${allInfo[2].image}> </a>
                 <div class = "description">
                     <h3>${allInfo[2].title}</h3>
                     <p>${allInfo[2].plot}</p>
@@ -282,8 +290,8 @@ async function showPopularMoviesList() {
         </div>
          <div class="movie-info">
             <div class="upper-half">
-                <img class="image4"
-                     src=${allInfo[3].image}>
+                 <a href = ${urlOfMovie4}> <img class="image4"
+                     src=${allInfo[3].image}> </a>
                 <div class = "description">
                     <h3>${allInfo[3].title}</h3>
                     <p>${allInfo[3].plot}</p>
