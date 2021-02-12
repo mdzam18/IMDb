@@ -1,4 +1,4 @@
-import {getInfo, plusDivs, plusDivs2, plusDivs3, plusDivs4} from '../MainPage/HomePage.js'
+import {getInfo} from '../MainPage/HomePage.js'
 import {showPopularMoviesList} from '../PopularMoviesPage/PopularMovies.js'
 import {showFanFavouriteMovieList} from '../FanFavouriteMoviesPage/FanFavourites.js'
 import {showMoviesList} from "../WatchMoviesPage/WatchMovies.js";
