@@ -10,7 +10,7 @@ window.addEventListener('hashchange', function () {
     locationHashChanged();
 }, false);
 
-function locationHashChanged() {
+export function locationHashChanged() {
     if (location.hash === "#WatchMovies") {
         UrlMapping["#WatchMovies"]();
     } else if (location.hash === "#/") {
@@ -24,8 +24,6 @@ function locationHashChanged() {
         UrlMapping['#movieInfo?id='](location.hash.substring(14, location.hash.length));
     } else  if (location.hash === '#searchMovie'){
         UrlMapping['#searchMovie']();
-    } else {
-        window.onload(getInfo())
     }
 }
 

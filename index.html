@@ -5,6 +5,11 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="mystyle.css">
     <script type="module" src="Modules/UrlRouting/UrlRouting.js"></script>
+    <script type="module">
+        import {locationHashChanged} from "./Modules/UrlRouting/UrlRouting.js";
+        window.location.hash = '#/'
+        locationHashChanged()
+    </script>
     <title>MainPage</title>
 </head>
 <body style="background-color: black;">
