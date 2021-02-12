@@ -6,8 +6,8 @@ window.addEventListener('hashchange', function () {
 function locationHashChanged() {
     if (location.hash === "#WatchMovies") {
         UrlMapping["#WatchMovies"]();
-    } else if (location.hash === "#") {
-        UrlMapping["#"]();
+    } else if (location.hash === "#/") {
+        UrlMapping["#/"]();
     } else if (location.hash === '#FanFavouriteMovies') {
         UrlMapping['#FanFavouriteMovies']();
     } else if (location.hash === '#PopularMovies') {
