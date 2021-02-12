@@ -3,8 +3,8 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="mystyle.css">
-    <script src="script.js"></script>
+    <link rel="stylesheet" href="../mystyle.css">
+    <script type="module" src="./UrlRouting/UrlRouting.js"></script>
     <title>MainPage</title>
 </head>
 <body style="background-color: black;">
@@ -12,13 +12,12 @@
     <div class="header">
         <div class="logoDiv">
             <div class="logo">
-                <a class="logo" href="#"><img class="logoImage"
+                <a class="logo" href="#/"><img class="logoImage"
                                               src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/IMDB_Logo_2016.svg/1200px-IMDB_Logo_2016.svg.png"></a>
             </div>
-
             <div class="search">
                 <input id = "search" type="text" placeholder="search IMDB">
-                <button onclick="searchMovie()" id = "search-button" type="submit">Submit</button>
+                <a href = "#searchMovie"><button id = "search-button" type="submit">Submit</button></a>
             </div>
         </div>
 

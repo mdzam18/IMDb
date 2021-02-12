@@ -446,9 +446,9 @@ let urls = [];
 let allInfo = [];
 let res = ["/title/tt2948372/", "/title/tt7126948/", "/title/tt6723592/", "/title/tt0087538/", "/title/tt0097647/", "/title/tt0091326/", "/title/tt0120338/"];
 
-function searchMovie(){
+async function searchMovie(){
     let movieName = document.getElementById("search").value
-    fetch("https://imdb-internet-movie-database-unofficial.p.rapidapi.com/search/" + movieName, {
+    await fetch("https://imdb-internet-movie-database-unofficial.p.rapidapi.com/search/" + movieName, {
         "method": "GET",
         "headers": {
             "x-rapidapi-key": "9dd2fb5d00mshf542bbe7a288501p194b73jsnc0b091569688",
