@@ -31,7 +31,7 @@ window.onhashchange = locationHashChanged;
 
 let UrlMapping = {
     "#/": function () {
-        getInfo();
+        window.onload(getInfo());
     },
     '#WatchMovies': function () {
         showMoviesList();
