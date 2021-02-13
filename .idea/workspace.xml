@@ -20,17 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="57249acd-f8f1-4de3-956c-1267b751fbaa" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Modules/MainPage/PlusDivs.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/MovieInfoPage/star.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/WatchGuide/WatchGuide.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/FanFavouriteMoviesPage/FanFavourites.js" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/FanFavouriteMoviesPage/FanFavourites.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/MainPage/HomePage.js" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/MainPage/HomePage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/MovieInfoPage/ShowMovieInfo.js" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/MovieInfoPage/ShowMovieInfo.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/PopularMoviesPage/PopularMovies.js" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/PopularMoviesPage/PopularMovies.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/UrlRouting/UrlRouting.js" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/UrlRouting/UrlRouting.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/WatchMoviesPage/WatchMovies.js" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/WatchMoviesPage/WatchMovies.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mystyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/mystyle.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -126,7 +116,7 @@
       <workItem from="1612974955563" duration="2293000" />
       <workItem from="1613040677457" duration="17158000" />
       <workItem from="1613129513630" duration="17623000" />
-      <workItem from="1613210562826" duration="12718000" />
+      <workItem from="1613210562826" duration="13410000" />
     </task>
     <servers />
   </component>

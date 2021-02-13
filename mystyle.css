@@ -586,4 +586,12 @@ tr:nth-child(even) {
     .fanFavorites2 {
         margin: 5% auto 0px auto;
     }
+
+    .content >table{
+        width: 100%;
+    }
+
+    .logo{
+        width: 30%;
+    }
 }
