@@ -16,7 +16,7 @@ export async function showMovieInfo(id) {
                 cast: data.cast
             };
             let curr = document.getElementsByClassName("content")[0];
-            curr.innerHTML = `<script type="module"> import {changeColor} from "./ShowMovieInfo.js";</script>
+            curr.innerHTML = `
             <div class="movie-info">
             <div class="upper-half">
                 <img class="image5"
@@ -29,11 +29,11 @@ export async function showMovieInfo(id) {
             <div class="lower-half">
                <p>year: ${result.year}</p>
                <div class = "rate">
-                    <img onclick="changeColor(1)" class="star1" src="Modules/MovieInfoPage/star.png" style="width: 20px; height: 20px; color:white">
-                    <img onclick="changeColor(1)" class="star2" src="Modules/MovieInfoPage/star.png" style="width: 20px; height: 20px; color:white">
-                    <img onclick="changeColor(1)" class="star3" src="Modules/MovieInfoPage/star.png" style="width: 20px; height: 20px; color:white">
-                    <img onclick="changeColor(1)" class="star4" src="Modules/MovieInfoPage/star.png" style="width: 20px; height: 20px; color:white">
-                    <img onclick="changeColor(1)" class="star5" src="Modules/MovieInfoPage/star.png" style="width: 20px; height: 20px; color:white">
+                    <img onclick="changeColor(1)" src="Modules/MovieInfoPage/star.png" style="width: 20px; height: 20px; color:white">
+                    <img onclick="changeColor(2)" id="star2" src="Modules/MovieInfoPage/star.png" style="width: 20px; height: 20px; color:white">
+                    <img onclick="changeColor(3)" id="star3" src="Modules/MovieInfoPage/star.png" style="width: 20px; height: 20px; color:white">
+                    <img onclick="changeColor(4)" id="star4" src="Modules/MovieInfoPage/star.png" style="width: 20px; height: 20px; color:white">
+                    <img onclick="changeColor(5)" id="star5" src="Modules/MovieInfoPage/star.png" style="width: 20px; height: 20px; color:white">
                 </div>
             </div>
         </div>`;
@@ -53,11 +53,11 @@ export function changeColor(n){
     }
     let curr = document.getElementsByClassName("rate")[0];
     curr.innerHTML = `
-        <img onclick="changeColor(1)" class="star1" src= ${urls[0]} style="width: 20px; height: 20px; color:white">
-        <img onclick="changeColor(1)" class="star2" src = ${urls[0]} style="width: 20px; height: 20px; color:white">
-        <img onclick="changeColor(1)" class="star3" src= ${urls[0]} style="width: 20px; height: 20px; color:white">
-        <img onclick="changeColor(1)" class="star4" src= ${urls[0]} style="width: 20px; height: 20px; color:white">
-        <img onclick="changeColor(1)" class="star5" src= ${urls[0]} style="width: 20px; height: 20px; color:white">
+        <img onclick="changeColor(1)" id="star1" src= ${urls[0]} style="width: 20px; height: 20px; color:white">
+        <img onclick="changeColor(2)" id="star2" src = ${urls[0]} style="width: 20px; height: 20px; color:white">
+        <img onclick="changeColor(3)" id="star3" src= ${urls[0]} style="width: 20px; height: 20px; color:white">
+        <img onclick="changeColor(4)" id="star4" src= ${urls[0]} style="width: 20px; height: 20px; color:white">
+        <img onclick="changeColor(5)" id="star5" src= ${urls[0]} style="width: 20px; height: 20px; color:white">
     `;
 
 }
