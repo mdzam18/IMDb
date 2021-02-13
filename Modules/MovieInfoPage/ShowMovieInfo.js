@@ -44,5 +44,20 @@ export async function showMovieInfo(id) {
 }
 
 export function changeColor(n){
-    document.getElementsByClassName("star1")[0].style.backgroundColor = none;
+    let urls = [];
+    for(var a = 0; a < n; a++){
+        urls.push("Modules/MovieInfoPage/yellowstar.png");
+    }
+    for(var a = n; a < 5; a++){
+        urls.push("Modules/MovieInfoPage/star.png");
+    }
+    let curr = document.getElementsByClassName("rate")[0];
+    curr.innerHTML = `
+        <img onclick="changeColor(1)" class="star1" src= ${urls[0]} style="width: 20px; height: 20px; color:white">
+        <img onclick="changeColor(1)" class="star2" src = ${urls[0]} style="width: 20px; height: 20px; color:white">
+        <img onclick="changeColor(1)" class="star3" src= ${urls[0]} style="width: 20px; height: 20px; color:white">
+        <img onclick="changeColor(1)" class="star4" src= ${urls[0]} style="width: 20px; height: 20px; color:white">
+        <img onclick="changeColor(1)" class="star5" src= ${urls[0]} style="width: 20px; height: 20px; color:white">
+    `;
+
 }
