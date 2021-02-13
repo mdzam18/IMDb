@@ -4,6 +4,8 @@ import {showFanFavouriteMovieList} from '../FanFavouriteMoviesPage/FanFavourites
 import {showMoviesList} from "../WatchMoviesPage/WatchMovies.js";
 import {showMovieInfo} from "../MovieInfoPage/ShowMovieInfo.js";
 import {searchMovie} from "../SearchMovie/Search.js";
+import {showWatchGuide} from "../WatchGuide/WatchGuide.js";
+
 
 window.addEventListener('hashchange', function () {
     console.log('The hash has changed!')
@@ -24,6 +26,8 @@ export function locationHashChanged() {
         UrlMapping['#movieInfo?id='](location.hash.substring(14, location.hash.length));
     } else  if (location.hash === '#searchMovie'){
         UrlMapping['#searchMovie']();
+    } else if(location.hash === '#watchGuide'){
+        UrlMapping['#watchGuide']();
     }
 }
 
@@ -47,5 +51,8 @@ let UrlMapping = {
     },
     '#searchMovie': function () {
         searchMovie()
+    },
+    '#watchGuide': function (){
+        showWatchGuide()
     }
 };

@@ -16,7 +16,8 @@ export async function showMovieInfo(id) {
                 cast: data.cast
             };
             let curr = document.getElementsByClassName("content")[0];
-            curr.innerHTML = `<div class="movie-info">
+            curr.innerHTML = `<script type="module"> import {changeColor} from "./ShowMovieInfo.js";</script>
+            <div class="movie-info">
             <div class="upper-half">
                 <img class="image5"
                      src=${result.image}>
@@ -26,11 +27,22 @@ export async function showMovieInfo(id) {
                 </div>
             </div>
             <div class="lower-half">
-                <p>${result.plot}</p>
+               <p>year: ${result.year}</p>
+               <div class = "rate">
+                    <img onclick="changeColor(1)" class="star1" src="Modules/MovieInfoPage/star.png" style="width: 20px; height: 20px; color:white">
+                    <img onclick="changeColor(1)" class="star2" src="Modules/MovieInfoPage/star.png" style="width: 20px; height: 20px; color:white">
+                    <img onclick="changeColor(1)" class="star3" src="Modules/MovieInfoPage/star.png" style="width: 20px; height: 20px; color:white">
+                    <img onclick="changeColor(1)" class="star4" src="Modules/MovieInfoPage/star.png" style="width: 20px; height: 20px; color:white">
+                    <img onclick="changeColor(1)" class="star5" src="Modules/MovieInfoPage/star.png" style="width: 20px; height: 20px; color:white">
+                </div>
             </div>
         </div>`;
         })
     }).catch(err => {
         console.error(err);
     });
+}
+
+export function changeColor(n){
+    document.getElementsByClassName("star1")[0].style.backgroundColor = none;
 }

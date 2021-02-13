@@ -10,6 +10,10 @@
         window.location.hash = '#/'
         locationHashChanged()
     </script>
+    <script type="module" src="Modules/MainPage/PlusDivs.js"></script>
+    <script>
+
+    </script>
     <title>MainPage</title>
 </head>
 <body style="background-color: black;">
@@ -20,21 +24,12 @@
                 <a class="logo" href="#/"><img class="logoImage"
                                               src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/IMDB_Logo_2016.svg/1200px-IMDB_Logo_2016.svg.png"></a>
             </div>
-            <div class="search">
-                <input id = "search" type="text" placeholder="search IMDB">
-                <a href = "#searchMovie"><button id = "search-button" type="submit">Submit</button></a>
-            </div>
+        </div>
+        <div class="search">
+            <input id = "search" type="text" placeholder="search IMDB">
+            <a href = "#searchMovie"><button id = "search-button" type="submit">Submit</button></a>
         </div>
 
-        <div class="buttonsDiv">
-            <div class="watchList">
-                <input type="button" value="Watch List">
-            </div>
-
-            <div class="signIn">
-                <input type="button" value="Sign In">
-            </div>
-        </div>
     </div>
     <div class="content">
         <div class="movies">
@@ -61,14 +56,12 @@
         <div class="fromYourWatchList">
             <div class="wathcListButton">
                 <div class="line"></div>
-                <input type="button" value="From your Watchlist">
+                <input type="button" value="Watch list">
             </div>
-            <p> Sign in to access your Watchlist </p>
+            <p> access Watchlist </p>
             <p>
                 Save shows and movies to keep track of what you want to watch
             </p>
-
-            <input type="button" value="Sign in to IMDb">
         </div>
         <div class="fanFavorites">
             <div class="fanFavorites2">
@@ -83,7 +76,7 @@
             <h1>More to watch</h1>
             <h3>IMDb helps you select the perfect next show or movie to watch.</h3>
             <div class="buttons">
-                <input type="button" value="Watch Guide">
+                <a href="#watchGuide"><input type="button" value="Watch Guide"></a>
                 <a href="#PopularMovies"><input type="button" value="Most Popular" style="margin-left: 40px"> </a>
             </div>
         </div>
