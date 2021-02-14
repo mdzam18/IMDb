@@ -175,7 +175,6 @@ function setImages(info1, info2, info3, classname, buttonName1, buttonName2, cla
     let urlOfMovie2 = '#movieInfo?id=' + info2.id;
     let urlOfMovie3 = '#movieInfo?id=' + info3.id;
     let x = document.getElementsByClassName(className2)[0];
-    console.log(buttonClassName1);
     x.innerHTML = `
     <button class=${buttonClassName1}>&#10094;</button>
     <a href=${urlOfMovie1}><img class=${classname}
@@ -193,7 +192,6 @@ export function updateImage2(info1, info2, info3, classname, buttonName1, button
 }
 function plusDivs(n) {
     i = i + n;
-    console.log(i);
     if (i < 0) {
         i = res.length - 1;
     }
