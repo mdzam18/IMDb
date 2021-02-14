@@ -4,17 +4,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
     <link rel="stylesheet" href="mystyle.css">
-    <script type="module" src="Modules/UrlRouting/UrlRouting.js"></script>
-    <script type="module">
-        import {locationHashChanged} from "./Modules/UrlRouting/UrlRouting.js";
-        window.location.hash = '#/'
-        locationHashChanged();
-    </script>
-    <script type="module" src="Modules/MainPage/PlusDivs.js"></script>
-    <script type="module" src="Modules/MovieInfoPage/ShowMovieInfo.js"></script>
     <title>MainPage</title>
 </head>
-<script type="module" src="Modules/MainPage/PlusDivs.js"></script>
 <body style="background-color: black;">
 <div class="main">
     <div class="header">
@@ -93,5 +84,15 @@
         <h4> © 2021 by IMDb.com, Inc.</h4>
     </div>
 </div>
+<script type="module" src="Modules/UrlRouting/UrlRouting.js"></script>
+<script type="module">
+    import {locationHashChanged} from "./Modules/UrlRouting/UrlRouting.js";
+    console.log(window.location.hash);
+    if(window.location.hash === "") {
+        window.location.hash = '#/'
+    }
+    locationHashChanged();
+</script>
+<script type="module" src="Modules/MovieInfoPage/ShowMovieInfo.js"></script>
 </body>
 </html>

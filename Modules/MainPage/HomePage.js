@@ -1,5 +1,4 @@
-
-export async function getInfo() {
+async function fetchInfo(){
     for(let j = 0; j < res.length; j++) {
         let id = res[j];
         id = id.substring(7, id.length - 1);
@@ -29,30 +28,42 @@ export async function getInfo() {
             console.error(err);
         });
     }
-    document.getElementsByClassName("display-left")[0].addEventListener("click", function(){
-        plusDivs(-1)
-    });
-    document.getElementsByClassName("display-right")[0].addEventListener("click", function(){
-        plusDivs(1)
-    });
-    document.getElementsByClassName("display-left2")[0].addEventListener("click", function(){
-        plusDivs2(-3)
-    });
-    document.getElementsByClassName("display-right2")[0].addEventListener("click", function(){
-        plusDivs2(3)
-    });
-    document.getElementsByClassName("display-left3")[0].addEventListener("click", function(){
-        plusDivs3(-3)
-    });
-    document.getElementsByClassName("display-right3")[0].addEventListener("click", function(){
-        plusDivs3(3)
-    });
-    document.getElementsByClassName("display-left4")[0].addEventListener("click", function(){
-        plusDivs4(-3)
-    });
-    document.getElementsByClassName("display-right4")[0].addEventListener("click", function(){
-        plusDivs4(3)
-    });
+}
+
+function setEventListener(className1, className2){
+    if(className1 === 'display-left2'){
+        document.getElementsByClassName("display-left2")[0].addEventListener("click", function(){
+            plusDivs2(-3)
+        });
+        document.getElementsByClassName("display-right2")[0].addEventListener("click", function(){
+            plusDivs2(3)
+        });
+    } else if(className1 === 'display-left3'){
+        document.getElementsByClassName("display-left3")[0].addEventListener("click", function(){
+            plusDivs3(-3)
+        });
+        document.getElementsByClassName("display-right3")[0].addEventListener("click", function(){
+            plusDivs3(3)
+        });
+    } else if(className1 === 'display-left4'){
+        document.getElementsByClassName("display-left4")[0].addEventListener("click", function(){
+            plusDivs4(-3)
+        });
+        document.getElementsByClassName("display-right4")[0].addEventListener("click", function(){
+            plusDivs4(3)
+        });
+    } else {
+        document.getElementsByClassName("display-left")[0].addEventListener("click", function(){
+            plusDivs(-1)
+        });
+        document.getElementsByClassName("display-right")[0].addEventListener("click", function(){
+            plusDivs(1)
+        });
+    }
+}
+
+export async function getInfo() {
+   fetchInfo();
 }
 
 export function changeHTML(){
@@ -156,7 +167,7 @@ export async function updateImage(info) {
     });
 }
 
-export async function updateImage2(info1, info2, info3, classname, buttonName1, buttonName2, className2, buttonClassName1, buttonClassName2) {
+function setImages(info1, info2, info3, classname, buttonName1, buttonName2, className2, buttonClassName1, buttonClassName2){
     let url1 = info1.image;
     let url2 = info2.image;
     let url3 = info3.image;
@@ -174,26 +185,12 @@ export async function updateImage2(info1, info2, info3, classname, buttonName1, 
      <a href=${urlOfMovie3}><img class=${classname}
          src=${url3}> </a>
     <button class=${buttonClassName2}>&#10095;</button>`;
-    document.getElementsByClassName("display-left2")[0].addEventListener("click", function(){
-        plusDivs2(-3)
-    });
-    document.getElementsByClassName("display-right2")[0].addEventListener("click", function(){
-        plusDivs2(3)
-    });
-    document.getElementsByClassName("display-left3")[0].addEventListener("click", function(){
-        plusDivs3(-3)
-    });
-    document.getElementsByClassName("display-right3")[0].addEventListener("click", function(){
-        plusDivs3(3)
-    });
-    document.getElementsByClassName("display-left4")[0].addEventListener("click", function(){
-        plusDivs4(-3)
-    });
-    document.getElementsByClassName("display-right4")[0].addEventListener("click", function(){
-        plusDivs4(3)
-    });
+    setEventListener(buttonClassName1, buttonClassName2);
 }
 
+export function updateImage2(info1, info2, info3, classname, buttonName1, buttonName2, className2, buttonClassName1, buttonClassName2) {
+    setImages(info1, info2, info3, classname, buttonName1, buttonName2, className2, buttonClassName1, buttonClassName2);
+}
 function plusDivs(n) {
     i = i + n;
     console.log(i);
@@ -290,4 +287,10 @@ let s = 0;
 let h = 0;
 let urls = [];
 export let allInfo = [];
-export let res = ["/title/tt2948372/", "/title/tt7126948/", "/title/tt6723592/", "/title/tt0087538/", "/title/tt0097647/", "/title/tt0091326/", "/title/tt0120338/"];
+export let res = ["/title/tt2948372/",
+    "/title/tt7126948/",
+    "/title/tt6723592/",
+    "/title/tt0087538/",
+    "/title/tt0097647/",
+    "/title/tt0091326/",
+    "/title/tt0120338/"];
