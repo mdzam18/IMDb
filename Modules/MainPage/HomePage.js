@@ -1,72 +1,71 @@
-async function fetchInfo(){
-    for(let j = 0; j < res.length; j++) {
-        let id = res[j];
+async function fetchInfo(id, j) {
+    id = id.substring(7, id.length - 1);
+    await fetch("https://imdb-internet-movie-database-unofficial.p.rapidapi.com/film/" + id, {
+        "method": "GET",
+        "headers": {
+            "x-rapidapi-key": "9dd2fb5d00mshf542bbe7a288501p194b73jsnc0b091569688",
+            "x-rapidapi-host": "imdb-internet-movie-database-unofficial.p.rapidapi.com"
+        }
+    }).then(response => {
+        let images = response.json();
+        id = res[j];
         id = id.substring(7, id.length - 1);
-        await fetch("https://imdb-internet-movie-database-unofficial.p.rapidapi.com/film/" + id, {
-            "method": "GET",
-            "headers": {
-                "x-rapidapi-key": "9dd2fb5d00mshf542bbe7a288501p194b73jsnc0b091569688",
-                "x-rapidapi-host": "imdb-internet-movie-database-unofficial.p.rapidapi.com"
-            }
-        }).then(response => {
-            let images = response.json();
-            id = res[j];
-            id = id.substring(7, id.length - 1);
-            images.then(data => {
-                let result = {
-                    image: data.poster,
-                    title: data.title,
-                    plot: data.plot,
-                    year: data.year,
-                    cast: data.cast,
-                    id: id
-                };
-                allInfo.push(result);
-                getImages(result.image);
-            })
-        }).catch(err => {
-            console.error(err);
-        });
-    }
+        images.then(data => {
+            let result = {
+                image: data.poster,
+                title: data.title,
+                plot: data.plot,
+                year: data.year,
+                cast: data.cast,
+                id: id
+            };
+            allInfo.push(result);
+            getImages(result.image);
+        })
+    }).catch(err => {
+        console.error(err);
+    });
 }
 
-function setEventListener(className1, className2){
-    if(className1 === 'display-left2'){
-        document.getElementsByClassName("display-left2")[0].addEventListener("click", function(){
+function setEventListener(className1, className2) {
+    if (className1 === 'display-left2') {
+        document.getElementsByClassName("display-left2")[0].addEventListener("click", function () {
             plusDivs2(-3)
         });
-        document.getElementsByClassName("display-right2")[0].addEventListener("click", function(){
+        document.getElementsByClassName("display-right2")[0].addEventListener("click", function () {
             plusDivs2(3)
         });
-    } else if(className1 === 'display-left3'){
-        document.getElementsByClassName("display-left3")[0].addEventListener("click", function(){
+    } else if (className1 === 'display-left3') {
+        document.getElementsByClassName("display-left3")[0].addEventListener("click", function () {
             plusDivs3(-3)
         });
-        document.getElementsByClassName("display-right3")[0].addEventListener("click", function(){
+        document.getElementsByClassName("display-right3")[0].addEventListener("click", function () {
             plusDivs3(3)
         });
-    } else if(className1 === 'display-left4'){
-        document.getElementsByClassName("display-left4")[0].addEventListener("click", function(){
+    } else if (className1 === 'display-left4') {
+        document.getElementsByClassName("display-left4")[0].addEventListener("click", function () {
             plusDivs4(-3)
         });
-        document.getElementsByClassName("display-right4")[0].addEventListener("click", function(){
+        document.getElementsByClassName("display-right4")[0].addEventListener("click", function () {
             plusDivs4(3)
         });
     } else {
-        document.getElementsByClassName("display-left")[0].addEventListener("click", function(){
+        document.getElementsByClassName("display-left")[0].addEventListener("click", function () {
             plusDivs(-1)
         });
-        document.getElementsByClassName("display-right")[0].addEventListener("click", function(){
+        document.getElementsByClassName("display-right")[0].addEventListener("click", function () {
             plusDivs(1)
         });
     }
 }
 
-export async function getInfo() {
-   fetchInfo();
+export function getInfo() {
+    for (let j = 0; j < res.length; j++) {
+        fetchInfo(res[j], j);
+    }
 }
 
-export function changeHTML(){
+export function changeHTML() {
     number = 0;
     isFirst = true;
     let curr = document.getElementsByClassName("content")[0];
@@ -159,15 +158,15 @@ export async function updateImage(info) {
                      src=${image}></a>
                 <button class="display-right">&#10095;</button>
             `;
-    document.getElementsByClassName("display-left")[0].addEventListener("click", function(){
+    document.getElementsByClassName("display-left")[0].addEventListener("click", function () {
         plusDivs(-1)
     });
-    document.getElementsByClassName("display-right")[0].addEventListener("click", function(){
+    document.getElementsByClassName("display-right")[0].addEventListener("click", function () {
         plusDivs(1)
     });
 }
 
-function setImages(info1, info2, info3, classname, buttonName1, buttonName2, className2, buttonClassName1, buttonClassName2){
+function setImages(info1, info2, info3, classname, buttonName1, buttonName2, className2, buttonClassName1, buttonClassName2) {
     let url1 = info1.image;
     let url2 = info2.image;
     let url3 = info3.image;
@@ -190,6 +189,7 @@ function setImages(info1, info2, info3, classname, buttonName1, buttonName2, cla
 export function updateImage2(info1, info2, info3, classname, buttonName1, buttonName2, className2, buttonClassName1, buttonClassName2) {
     setImages(info1, info2, info3, classname, buttonName1, buttonName2, className2, buttonClassName1, buttonClassName2);
 }
+
 function plusDivs(n) {
     i = i + n;
     if (i < 0) {
