@@ -5,6 +5,15 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="mystyle.css">
     <title>MainPage</title>
+    <script type="module" src="Modules/UrlRouting/UrlRouting.js"></script>
+    <script type="module">
+        import {locationHashChanged} from "./Modules/UrlRouting/UrlRouting.js";
+        if(window.location.hash === "") {
+            window.location.hash = '#/';
+        }
+        locationHashChanged();
+    </script>
+    <script type="module" src="Modules/MovieInfoPage/ShowMovieInfo.js"></script>
 </head>
 <body style="background-color: black;">
 <div class="main">
@@ -84,12 +93,5 @@
         <h4> © 2021 by IMDb.com, Inc.</h4>
     </div>
 </div>
-<script type="module" src="Modules/UrlRouting/UrlRouting.js"></script>
-<script type="module">
-    import {locationHashChanged} from "./Modules/UrlRouting/UrlRouting.js";
-    window.location.hash = '#/';
-    locationHashChanged();
-</script>
-<script type="module" src="Modules/MovieInfoPage/ShowMovieInfo.js"></script>
 </body>
 </html>

@@ -1,6 +1,39 @@
-import {allInfo} from '../MainPage/HomePage.js'
+import {res} from '../MainPage/HomePage.js'
 
-export function showWatchList(){
+async function fetchInfo(id, j) {
+    id = id.substring(7, id.length - 1);
+    await fetch("https://imdb-internet-movie-database-unofficial.p.rapidapi.com/film/" + id, {
+        "method": "GET",
+        "headers": {
+            "x-rapidapi-key": "9dd2fb5d00mshf542bbe7a288501p194b73jsnc0b091569688",
+            "x-rapidapi-host": "imdb-internet-movie-database-unofficial.p.rapidapi.com"
+        }
+    }).then(response => {
+        let images = response.json();
+        id = res[j];
+        id = id.substring(7, id.length - 1);
+        images.then(data => {
+            let result = {
+                image: data.poster,
+                title: data.title,
+                plot: data.plot,
+                year: data.year,
+                cast: data.cast,
+                id: id
+            };
+            allInfo.push(result);
+            if(allInfo.length === 4){
+                showInfo();
+            }
+        })
+    }).catch(err => {
+        console.error(err);
+    });
+}
+
+let allInfo = [];
+
+function showInfo(){
     let curr = document.getElementsByClassName('content')[0];
     let urlOfMovie1 = '#movieInfo?id=' + allInfo[0].id;
     let urlOfMovie2 = '#movieInfo?id=' + allInfo[1].id;
@@ -39,4 +72,10 @@ export function showWatchList(){
     </tr>
     </table>
 `;
+}
+
+export function showWatchList(){
+    for (let j = 0; j < res.length; j++) {
+        fetchInfo(res[j], j);
+    }
 }
