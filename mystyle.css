@@ -361,7 +361,7 @@ input:hover{
     border-radius: 10%;
 }
 
-.wathcListButton > input {
+.wathcListButton > a > input {
     background-color: goldenrod;
     margin-left: 10px;
 }

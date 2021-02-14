@@ -5,6 +5,7 @@ import {showMoviesList} from "../WatchMoviesPage/WatchMovies.js";
 import {showMovieInfo} from "../MovieInfoPage/ShowMovieInfo.js";
 import {searchMovie} from "../SearchMovie/Search.js";
 import {showWatchGuide} from "../WatchGuide/WatchGuide.js";
+import {showWatchList} from "../WatchListPage/WatchList.js";
 
 window.addEventListener('hashchange', function () {
     console.log('The hash has changed!')
@@ -27,6 +28,8 @@ export function locationHashChanged() {
         UrlMapping['#searchMovie']();
     } else if(location.hash === '#watchGuide'){
         UrlMapping['#watchGuide']();
+    } else if(location.hash ==='#watchList'){
+        UrlMapping['#watchList']();
     }
 }
 
@@ -50,10 +53,13 @@ let UrlMapping = {
         showMovieInfo(id);
     },
     '#searchMovie': function () {
-        searchMovie()
+        searchMovie();
     },
     '#watchGuide': function (){
-        showWatchGuide()
+        showWatchGuide();
+    },
+    '#watchList': function (){
+        showWatchList();
     }
 };
 

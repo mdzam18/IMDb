@@ -84,7 +84,7 @@ export function changeHTML(){
         <div class="fromYourWatchList">
             <div class="wathcListButton">
                 <div class="line"></div>
-                <input type="button" value="Watch list">
+                <a href="#watchList"><input type="button" value="Watch list"></a>
             </div>
             <p> access Watchlist </p>
             <p>
