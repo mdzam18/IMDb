@@ -28,15 +28,32 @@ export async function showMovieInfo(id) {
             </div>
             <div class="lower-half">
                <p>year: ${result.year}</p>
+               <p>Would you like to rate the movie?</p>
+               <p>your rating:</p>
                <div class = "rate">
-                    <img onclick="changeColor(1)" src="Modules/MovieInfoPage/star.png" style="width: 20px; height: 20px; color:white">
-                    <img onclick="changeColor(2)" id="star2" src="Modules/MovieInfoPage/star.png" style="width: 20px; height: 20px; color:white">
-                    <img onclick="changeColor(3)" id="star3" src="Modules/MovieInfoPage/star.png" style="width: 20px; height: 20px; color:white">
-                    <img onclick="changeColor(4)" id="star4" src="Modules/MovieInfoPage/star.png" style="width: 20px; height: 20px; color:white">
-                    <img onclick="changeColor(5)" id="star5" src="Modules/MovieInfoPage/star.png" style="width: 20px; height: 20px; color:white">
+                    <img  id = "star1" src="Modules/MovieInfoPage/star.png" style="width: 20px; height: 20px; color:white">
+                    <img  id="star2" src="Modules/MovieInfoPage/star.png" style="width: 20px; height: 20px; color:white">
+                    <img  id="star3" src="Modules/MovieInfoPage/star.png" style="width: 20px; height: 20px; color:white">
+                    <img  id="star4" src="Modules/MovieInfoPage/star.png" style="width: 20px; height: 20px; color:white">
+                    <img  id="star5" src="Modules/MovieInfoPage/star.png" style="width: 20px; height: 20px; color:white">
                 </div>
             </div>
         </div>`;
+            document.getElementById("star1").addEventListener("click", function(){
+                changeColor(1);
+            });
+            document.getElementById("star2").addEventListener("click", function(){
+                changeColor(2);
+            });
+            document.getElementById("star3").addEventListener("click", function(){
+                changeColor(3);
+            });
+            document.getElementById("star4").addEventListener("click", function(){
+                changeColor(4);
+            });
+            document.getElementById("star5").addEventListener("click", function(){
+                changeColor(5);
+            });
         })
     }).catch(err => {
         console.error(err);
@@ -53,11 +70,25 @@ export function changeColor(n){
     }
     let curr = document.getElementsByClassName("rate")[0];
     curr.innerHTML = `
-        <img onclick="changeColor(1)" id="star1" src= ${urls[0]} style="width: 20px; height: 20px; color:white">
-        <img onclick="changeColor(2)" id="star2" src = ${urls[0]} style="width: 20px; height: 20px; color:white">
-        <img onclick="changeColor(3)" id="star3" src= ${urls[0]} style="width: 20px; height: 20px; color:white">
-        <img onclick="changeColor(4)" id="star4" src= ${urls[0]} style="width: 20px; height: 20px; color:white">
-        <img onclick="changeColor(5)" id="star5" src= ${urls[0]} style="width: 20px; height: 20px; color:white">
+        <img  id="star1" src= ${urls[0]} style="width: 20px; height: 20px; color:white">
+        <img  id="star2" src = ${urls[1]} style="width: 20px; height: 20px; color:white">
+        <img  id="star3" src= ${urls[2]} style="width: 20px; height: 20px; color:white">
+        <img  id="star4" src= ${urls[3]} style="width: 20px; height: 20px; color:white">
+        <img  id="star5" src= ${urls[4]} style="width: 20px; height: 20px; color:white">
     `;
-
+    document.getElementById("star1").addEventListener("click", function(){
+        changeColor(1);
+    });
+    document.getElementById("star2").addEventListener("click", function(){
+        changeColor(2);
+    });
+    document.getElementById("star3").addEventListener("click", function(){
+        changeColor(3);
+    });
+    document.getElementById("star4").addEventListener("click", function(){
+        changeColor(4);
+    });
+    document.getElementById("star5").addEventListener("click", function(){
+        changeColor(5);
+    });
 }
