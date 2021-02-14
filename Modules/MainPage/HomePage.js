@@ -1,3 +1,5 @@
+import {plusDivs} from "./PlusDivs.js";
+
 export async function getInfo() {
     for(let j = 0; j < res.length; j++) {
         let id = res[j];
@@ -30,6 +32,71 @@ export async function getInfo() {
     }
 }
 
+export function changeHTML(){
+    number = 0;
+    isFirst = true;
+    let curr = document.getElementsByClassName("content")[0];
+    curr.innerHTML = `
+         <div class="movies">
+            <div class="images">
+            </div>
+            <div class="upNext">
+                <h1>Up next</h1>
+                <div class="trailers">
+                </div>
+            </div>
+        </div>
+
+        <div class="featuredToday">
+            <h1> Featured Today </h1>
+            <div class="featuredTodayImages">
+            </div>
+        </div>
+
+        <div class="whatToWatch">
+            <h1>What To Watch</h1>
+            <a href="#WatchMovies"> <input type="button" value="Browse our What to Watch page"> </a>
+        </div>
+
+        <div class="fromYourWatchList">
+            <div class="wathcListButton">
+                <div class="line"></div>
+                <input type="button" value="Watch list">
+            </div>
+            <p> access Watchlist </p>
+            <p>
+                Save shows and movies to keep track of what you want to watch
+            </p>
+        </div>
+        <div class="fanFavorites">
+            <div class="fanFavorites2">
+                <div class="line"></div>
+                <a href="#FanFavouriteMovies"><input type="button" value="Fan Favourites"> </a>
+            </div>
+            <div class="trailers2">
+            </div>
+        </div>
+
+        <div class="moreToWatch">
+            <h1>More to watch</h1>
+            <h3>IMDb helps you select the perfect next show or movie to watch.</h3>
+            <div class="buttons">
+                <a href="#watchGuide"><input type="button" value="Watch Guide"></a>
+                <a href="#PopularMovies"><input type="button" value="Most Popular" style="margin-left: 40px"> </a>
+            </div>
+        </div>
+
+        <div class="exclusiveVideos">
+            <h1>Exclusive Videos</h1>
+            <div class="imdbOriginals">
+                <div class="line"></div>
+                <h1>IMDb Originals</h1>
+            </div>
+            <h4> Celebrity interviews, trending entertainment stories, and expert analysis </h4>
+        </div>
+    `;
+}
+
 async function getImages(image) {
     urls.push(image);
     if (isFirst) {
@@ -49,6 +116,7 @@ async function getImages(image) {
 }
 
 export async function updateImage(info) {
+    console.log("naruto");
     let image = info.image;
     let curr = document.getElementsByClassName("images")[0];
     let urlOfMovie = '#movieInfo?id=' + info.id;

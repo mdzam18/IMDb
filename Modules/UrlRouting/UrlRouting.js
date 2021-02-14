@@ -1,4 +1,4 @@
-import {getInfo} from '../MainPage/HomePage.js'
+import {changeHTML, getInfo} from '../MainPage/HomePage.js'
 import {showPopularMoviesList} from '../PopularMoviesPage/PopularMovies.js'
 import {showFanFavouriteMovieList} from '../FanFavouriteMoviesPage/FanFavourites.js'
 import {showMoviesList} from "../WatchMoviesPage/WatchMovies.js";
@@ -35,6 +35,7 @@ window.onhashchange = locationHashChanged;
 
 let UrlMapping = {
     "#/": function () {
+        changeHTML();
         getInfo();
     },
     '#WatchMovies': function () {

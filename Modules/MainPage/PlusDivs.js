@@ -1,6 +1,6 @@
 import {updateImage, updateImage2, res, allInfo} from "./HomePage.js";
 
-function plusDivs(n) {
+export function plusDivs(n) {
     console.log("sasuke");
     i = i + n;
     if (i < 0) {
