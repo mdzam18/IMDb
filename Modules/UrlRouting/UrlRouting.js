@@ -6,7 +6,6 @@ import {showMovieInfo} from "../MovieInfoPage/ShowMovieInfo.js";
 import {searchMovie} from "../SearchMovie/Search.js";
 import {showWatchGuide} from "../WatchGuide/WatchGuide.js";
 
-
 window.addEventListener('hashchange', function () {
     console.log('The hash has changed!')
     locationHashChanged();
@@ -57,3 +56,4 @@ let UrlMapping = {
         showWatchGuide()
     }
 };
+

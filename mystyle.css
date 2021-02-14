@@ -134,7 +134,7 @@ tr:nth-child(even) {
     margin: 10px auto;
 }
 
-.display-right {
+.display-right, .display-right2, .display-right3, .display-right4 {
     opacity: 1;
     cursor: pointer;
     border-radius: 4px;
@@ -152,7 +152,8 @@ tr:nth-child(even) {
     padding: 0.75rem 0.25rem;
 }
 
-.display-left {
+
+.display-left, .display-left2, .display-left3, .display-left4 {
     opacity: 1;
     cursor: pointer;
     border-radius: 4px;
